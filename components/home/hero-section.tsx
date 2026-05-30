@@ -38,7 +38,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <span className="text-5xl md:text-7xl lg:text-8xl font-[family-name:var(--font-great-vibes)] text-charcoal">
+            <span className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-great-vibes)] text-charcoal">
               {t.hero.tagline}
             </span>
           </motion.div>

@@ -10,7 +10,7 @@ export const translations = {
     },
     // Hero Section
     hero: {
-      tagline: 'EL Style ES',
+      tagline: 'Usługi Krawieckie Łódź – Retkinia',
       headline: 'Ręcznie szyte z pasją i perfekcją',
       description: 'Odkryj elegancję rękodzieła i krawiectwa na miarę. Od tradycyjnych projektów po nowoczesne kreacje - każda rzecz opowiada historię mistrzowskiego kunsztu.',
       cta: {
@@ -102,11 +102,11 @@ export const translations = {
     // Footer
     footer: {
       company: 'EL Style ES',
-      tagline: 'Krawiectwo na miarę',
-      address: 'ul. Przykładowa 123',
-      city: '00-001 Warszawa',
-      phone: '+48 123 456 789',
-      email: 'kontakt@elstylees.pl',
+      tagline: 'ELES Zakład krawiecki / Sklep z pasmanterią i akcesoriami krawieckimi',
+      address: 'ul. Retkińska 113/117,94-004 Osiedle Retkinia',
+      city: 'Łódź',
+      phone: '+48 502 504 448',
+      email: 'pracownia@krawcowa-retknia.pl',
       hours: {
         title: 'Godziny Otwarcia',
         weekdays: 'Pon - Pt: 9:00 - 18:00',
@@ -148,7 +148,7 @@ export const translations = {
       heroTitle: 'O Mnie',
       heroSubtitle: 'Historia pasji do krawiectwa',
       storyTitle: 'Moja Historia',
-      storyContent: 'Od ponad 20 lat tworzę wyjątkowe kreacje dla wymagających klientów. Moja przygoda z krawiectwem zaczęła się od fascynacji tradycyjnymi technikami szycia, które przekazywane są z pokolenia na pokolenie.',
+      storyContent: 'Jako absolwentka kierunku włókiennictwa na Poltechnice Łódzkiej, posiadam odpowiednią wiedzę o materiałach tekstylnych jak i o konstrukcji oraz technologii odzieży.',
       valuesTitle: 'Nasze Wartości',
       values: {
         quality: {
@@ -208,6 +208,14 @@ export const translations = {
       infoTitle: 'Dane Kontaktowe',
       mapTitle: 'Lokalizacja',
     },
+    machines : [
+      'stębnówka',
+      'overlock',
+      'merezka',
+      'renderka',
+      'podszywarka',
+      'napownica',
+    ]
   },
 } as const
 

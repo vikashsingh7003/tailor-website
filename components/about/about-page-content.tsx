@@ -111,17 +111,20 @@ export function AboutPageContent() {
                 {t.about.storyTitle}
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl font-serif font-medium text-foreground">
-                Pasja przekazywana przez pokolenia
+                Krawiectwo oparte na wiedzy i pasji
               </h2>
               <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   {t.about.storyContent}
                 </p>
                 <p>
-                  Przez lata doskonaliłam swój warsztat, ucząc się od najlepszych mistrzów krawiectwa. Każdy projekt to dla mnie wyzwanie i możliwość stworzenia czegoś wyjątkowego.
+                  Przez kilka lat pracowałam jako konstruktor odzieży dla firm, takich jak Vero Moda czy Telimena, jednak najwięcej satysfakcji zawsze sprawiało mi szycie i bezpośredni kontakt z klientem.
                 </p>
                 <p>
-                  Dziś EL Style ES to synonim jakości, elegancji i indywidualnego podejścia do każdego klienta. Wierzę, że ubranie szyte na miarę to inwestycja w siebie - w pewność siebie i wyjątkowy wygląd.
+                  Wieloletnie doświadczenie w naprawianiu i przerabianiu odzieży, sprawia, że nawet skomplikowane operacje krawieckie wykonuję szybko a jednocześnie dokładnie.
+                </p>
+                <p>
+                  Bardzo ważne jest dla mnie zadowolenie klienta, dlatego zawsze fachowo i rzetelnie podchodzę do wykonania usługi.
                 </p>
               </div>
             </motion.div>
@@ -206,7 +209,7 @@ export function AboutPageContent() {
                 <div className="absolute left-0 top-0 bottom-0 w-px bg-border" />
                 {/* Timeline dot */}
                 <div className="absolute left-0 top-1 w-2 h-2 -translate-x-1/2 rounded-full bg-accent" />
-                
+
                 <span className="text-sm text-accent font-medium">{item.year}</span>
                 <h3 className="mt-2 text-xl font-serif font-medium text-foreground">
                   {item.title}
@@ -239,8 +242,15 @@ export function AboutPageContent() {
                 Miejsce, gdzie powstaje magia
               </h2>
               <p className="mt-6 text-cream/70 leading-relaxed">
-                Nasza pracownia to przestrzeń, gdzie tradycja spotyka się z nowoczesnością. Wyposażona w profesjonalny sprzęt i najwyższej jakości materiały, pozwala nam tworzyć kreacje spełniające najwyższe standardy.
+                Nasza pracownia – to tutaj twoja odzież może „dostać drugie życie”. W zależności od rodzaju materiału czy rodzaju robót krawieckich wykorzystujemy różne maszyny, dzięki temu szycie odbywa się bez przeszkód. Nasza pracownia wyposażona jest w bogaty park maszyn:
               </p>
+              <ul className="list-disc space-y-2 pl-5 text-base text-cream/70 mt-4">
+                {t.machines.map((item) => (
+                  <li key={item} className="capitalize">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
 
             <motion.div
