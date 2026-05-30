@@ -44,11 +44,11 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="group">
             <motion.span
-              className="text-2xl lg:text-3xl font-[family-name:var(--font-great-vibes)] text-charcoal"
+              className="text-2xl lg:text-3xl font-[family-name:var(--font-great-vibes)] text-charcoal flex items-center justify-center gap-2"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-              EL Style ES
+             <img src="/logo-wbg.png" alt="EL Style ES Logo" className='w-15 h-15' /> EL Style ES
             </motion.span>
           </Link>
 
