@@ -11,7 +11,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background with overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/15 to-transparent z-10" />
       
       {/* Decorative fabric texture */}
       <div className="absolute inset-0 fabric-texture z-10 opacity-50" />
@@ -19,7 +19,7 @@ export function HeroSection() {
       {/* Hero Image */}
       <div className="absolute right-0 top-0 w-full lg:w-3/5 h-full">
         <Image
-          src="/images/hero-dress.png"
+          src="/images/hero-dress.jpeg"
           alt="Elegancka suknia na manekinie"
           fill
           className="object-cover object-center"

@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer'
 import { LabPageContent } from '@/components/lab/lab-page-content'
 
 export const metadata: Metadata = {
-  title: 'Pracownia | EL Style ES',
+  title: 'Pracownia | WIWI',
   description: 'Nasza pracownia krawiecka - miejsce gdzie tradycja spotyka się z nowoczesnością. Profesjonalny sprzęt i najwyższej jakości materiały.',
 }
 

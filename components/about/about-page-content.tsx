@@ -44,8 +44,8 @@ const timeline = [
   },
   {
     year: '2020',
-    title: 'EL Style ES',
-    description: 'Powstanie marki EL Style ES i nowa, nowoczesna pracownia.',
+    title: 'WIWI',
+    description: 'Powstanie marki WIWI i nowa, nowoczesna pracownia.',
   },
 ]
 

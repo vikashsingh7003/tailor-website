@@ -12,7 +12,7 @@ const testimonials = [
     id: 1,
     name: 'Anna Kowalska',
     role: 'Klientka',
-    content: 'Suknia ślubna z EL Style ES to prawdziwe dzieło sztuki. Każdy detal był dopracowany do perfekcji. Polecam z całego serca!',
+    content: 'Suknia ślubna z WIWI to prawdziwe dzieło sztuki. Każdy detal był dopracowany do perfekcji. Polecam z całego serca!',
     rating: 5,
   },
   {

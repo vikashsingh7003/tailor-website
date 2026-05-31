@@ -9,9 +9,9 @@ import { translations } from '@/lib/translations'
 const t = translations.pl
 
 const galleryImages = [
-  { src: '/images/hero-dress.png', alt: 'Elegancka suknia ślubna', aspect: 'tall' },
-  { src: '/images/gallery-1.png', alt: 'Garnitur na miarę', aspect: 'square' },
-  { src: '/images/gallery-2.png', alt: 'Suknia wieczorowa', aspect: 'square' },
+  { src: '/images/gallery-7.jpeg', alt: 'Elegancka suknia ślubna', aspect: 'tall' },
+  // { src: '/images/gallery-1.png', alt: 'Garnitur na miarę', aspect: 'square' },
+  { src: '/images/gallery-6.jpeg', alt: 'Suknia wieczorowa', aspect: 'square' },
   { src: '/images/craftsmanship.png', alt: 'Rzemiosło krawieckie', aspect: 'wide' },
   { src: '/images/gallery-3.png', alt: 'Tkaniny premium', aspect: 'square' },
   { src: '/images/gallery-4.png', alt: 'Detale haftu', aspect: 'tall' },

@@ -25,10 +25,10 @@ const greatVibes = Great_Vibes({
 })
 
 export const metadata: Metadata = {
-  title: 'EL Style ES | Krawiectwo na miarę',
+  title: 'WIWI | Krawiectwo na miarę',
   description: 'Ręcznie szyte z pasją i perfekcją. Odkryj elegancję rękodzieła i krawiectwa na miarę dla nowoczesnych kobiet i mężczyzn.',
   generator: 'vikash-nextjs',
-  keywords: ['krawiectwo', 'szycie na miarę', 'przeróbki', 'garnitury', 'suknie', 'EL Style ES'],
+  keywords: ['krawiectwo', 'szycie na miarę', 'przeróbki', 'garnitury', 'suknie', 'WIWI'],
    icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: 'EL Style ES | Krawiectwo na miarę',
+    title: 'WIWI | Krawiectwo na miarę',
     description: 'Ręcznie szyte z pasją i perfekcją. Odkryj elegancję rękodzieła i krawiectwa na miarę.',
     type: 'website',
     locale: 'pl_PL',

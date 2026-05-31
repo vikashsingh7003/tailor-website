@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer'
 import { AboutPageContent } from '@/components/about/about-page-content'
 
 export const metadata: Metadata = {
-  title: 'O Mnie | EL Style ES',
+  title: 'O Mnie | WIWI',
   description: 'Poznaj historię pasji do krawiectwa. Od ponad 20 lat tworzę wyjątkowe kreacje dla wymagających klientów.',
 }
 

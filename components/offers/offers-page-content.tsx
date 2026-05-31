@@ -11,7 +11,7 @@ const t = translations.pl
 const services = [
   {
     icon: Scissors,
-    image: '/images/hero-dress.png',
+    image: '/images/hero-dress.jpeg',
     ...t.services.items.tailoring,
     features: ['Indywidualny projekt', 'Precyzyjne wymiary', 'Wybór tkanin', 'Wielokrotne przymiarki'],
   },

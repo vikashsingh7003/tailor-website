@@ -49,7 +49,7 @@ export const translations = {
     aboutPreview: {
       title: 'O Mnie i Moim Rzemiośle',
       subtitle: 'Kunszt w Każdym Ściegu',
-      description: 'W EL Style ES wierzymy w sztukę ręcznego rzemiosła. Każdy element garderoby jest tworzony z dbałością o perfekcję i pasją, od pierwszego szkicu po ostatni ścieg, zapewniając najwyższy poziom kunsztu i unikalny detal.',
+      description: 'W WIWI wierzymy w sztukę ręcznego rzemiosła. Każdy element garderoby jest tworzony z dbałością o perfekcję i pasją, od pierwszego szkicu po ostatni ścieg, zapewniając najwyższy poziom kunsztu i unikalny detal.',
       cta: 'Poznaj Moją Historię',
     },
     // Services Section
@@ -101,11 +101,11 @@ export const translations = {
     },
     // Footer
     footer: {
-      company: 'EL Style ES',
+      company: 'WIWI',
       tagline: 'ELES Zakład krawiecki / Sklep z pasmanterią i akcesoriami krawieckimi',
-      address: 'ul. Retkińska 113/117,94-004 Osiedle Retkinia',
+      address: 'Jana Pawła II 65 93-570',
       city: 'Łódź',
-      phone: '+48 502 504 448',
+      phone: '+48 660 989 475',
       email: 'pracownia@krawcowa-retknia.pl',
       hours: {
         title: 'Godziny Otwarcia',
@@ -122,7 +122,7 @@ export const translations = {
         button: 'Zapisz się',
         success: 'Dziękujemy za zapisanie się!',
       },
-      copyright: '© 2024 EL Style ES. Wszelkie prawa zastrzeżone.',
+      copyright: '© 2024 WIWI. Wszelkie prawa zastrzeżone.',
     },
     // Contact Form
     contactForm: {

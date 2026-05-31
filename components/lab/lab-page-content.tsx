@@ -170,7 +170,7 @@ export function LabPageContent() {
                 className="relative aspect-square rounded-lg overflow-hidden"
               >
                 <Image
-                  src="/images/hero-dress.png"
+                  src="/images/hero-dress.jpeg"
                   alt="Suknia"
                   fill
                   className="object-cover"

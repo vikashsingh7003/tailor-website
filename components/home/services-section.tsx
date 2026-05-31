@@ -10,7 +10,7 @@ const t = translations.pl
 const services = [
   {
     key: 'tailoring',
-    image: '/images/hero-dress.png',
+    image: '/images/gallery-6.jpeg',
     ...t.services.items.tailoring,
   },
   {
@@ -20,7 +20,7 @@ const services = [
   },
   {
     key: 'dresses',
-    image: '/images/hero-dress.png',
+    image: '/images/gallery-7.jpeg',
     ...t.services.items.dresses,
   },
   {

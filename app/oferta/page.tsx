@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer'
 import { OffersPageContent } from '@/components/offers/offers-page-content'
 
 export const metadata: Metadata = {
-  title: 'Oferta | EL Style ES',
+  title: 'Oferta | WIWI',
   description: 'Kompleksowe usługi krawieckie: krawiectwo na miarę, przeróbki, suknie, garnitury, naprawy i redesign odzieży.',
 }
 

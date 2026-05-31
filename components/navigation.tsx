@@ -44,12 +44,12 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="group">
             <motion.span
-              className="font-serif font-medium text-foreground leading-tight text-balance flex items-center justify-center gap-2"
+              className="font-serif font-medium text-foreground leading-tight text-balance flex items-center justify-center"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-             <img src="/logo-wbg.png" alt="EL Style ES Logo" className='w-15 h-15' /> 
-             <span className="font-bold text-2xl lg:text-5xl">EL Style ES</span>
+             <img src="/logo-wbg.png" alt="WIWI Logo" className='w-15 h-15' /> 
+             <span className="font-bold text-2xl lg:text-5xl">IWI</span>
             </motion.span>
           </Link>
 
