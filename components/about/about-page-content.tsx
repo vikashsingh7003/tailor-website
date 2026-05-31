@@ -88,7 +88,7 @@ export function AboutPageContent() {
             >
               <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
                 <Image
-                  src="/images/tailor-portrait.png"
+                  src="/images/tailor-portrait.jpg"
                   alt="Portret krawcowej"
                   fill
                   className="object-cover"

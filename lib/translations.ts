@@ -106,7 +106,7 @@ export const translations = {
       address: 'Jana Pawła II 65 93-570',
       city: 'Łódź',
       phone: '+48 660 989 475',
-      email: 'pracownia@krawcowa-retknia.pl',
+      email: 'Lasots.ww@wp.pl',
       hours: {
         title: 'Godziny Otwarcia',
         weekdays: 'Pon - Pt: 9:00 - 18:00',
