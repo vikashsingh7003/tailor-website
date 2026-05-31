@@ -39,16 +39,17 @@ export function Footer() {
               {t.footer.tagline}
             </p>
             <div className="mt-6 flex gap-4">
-              <a
+              {/* <a
                 href="#"
                 aria-label="Instagram"
                 className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-accent/30 transition-colors duration-300"
               >
                 <Instagram size={18} className="text-cream" />
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="https://www.facebook.com/Wiwi.wiwi.brand?ref=1"
                 aria-label="Facebook"
+                target="_blank"
                 className="w-10 h-10 rounded-full bg-cream/10 flex items-center justify-center hover:bg-accent/30 transition-colors duration-300"
               >
                 <Facebook size={18} className="text-cream" />
