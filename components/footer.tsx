@@ -31,7 +31,8 @@ export function Footer() {
           >
             <Link href="/" className="inline-block">
               <span className="text-3xl font-[family-name:var(--font-great-vibes)] text-cream">
-                {t.footer.company}
+                {/* {t.footer.company} */}
+                <img src="2026-05-31_16.55.43-removebg-preview.png" alt="WIWI Logo" className='w-40 h-40' />
               </span>
             </Link>
             <p className="mt-4 text-cream/70 text-sm leading-relaxed">

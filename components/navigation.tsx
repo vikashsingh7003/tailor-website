@@ -33,11 +33,10 @@ export function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-sm'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? 'bg-background/95 backdrop-blur-md shadow-sm'
+        : 'bg-transparent'
+        }`}
     >
       <nav className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20 lg:h-24">
@@ -48,8 +47,8 @@ export function Navigation() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-             <img src="/logo-wbg.png" alt="WIWI Logo" className='w-15 h-15' /> 
-             <span className="font-bold text-2xl lg:text-5xl">IWI</span>
+              <img src="2026-05-31_16.55.35-removebg-preview.png" alt="WIWI Logo" className='w-40 h-40' />
+
             </motion.span>
           </Link>
 
