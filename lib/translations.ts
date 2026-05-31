@@ -102,7 +102,7 @@ export const translations = {
     // Footer
     footer: {
       company: 'WIWI',
-      tagline: 'ELES Zakład krawiecki / Sklep z pasmanterią i akcesoriami krawieckimi',
+      tagline: 'WIWI Zakład krawiecki / Sklep z pasmanterią i akcesoriami krawieckimi',
       address: 'Jana Pawła II 65 93-570',
       city: 'Łódź',
       phone: '+48 660 989 475',
@@ -208,7 +208,7 @@ export const translations = {
       infoTitle: 'Dane Kontaktowe',
       mapTitle: 'Lokalizacja',
     },
-    machines : [
+    machines: [
       'stębnówka',
       'overlock',
       'merezka',
