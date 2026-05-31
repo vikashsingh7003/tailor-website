@@ -121,16 +121,17 @@ export function ContactPageContent() {
               <div className="mt-10">
                 <h3 className="font-medium text-foreground mb-4">Obserwuj nas</h3>
                 <div className="flex gap-4">
-                  <a
+                  {/* <a
                     href="#"
                     aria-label="Instagram"
                     className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center hover:bg-accent/20 transition-colors duration-300"
                   >
                     <Instagram size={20} className="text-foreground" />
-                  </a>
+                  </a> */}
                   <a
-                    href="#"
+                    href="https://www.facebook.com/Wiwi.wiwi.brand?ref=1"
                     aria-label="Facebook"
+                    target="_blank"
                     className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center hover:bg-accent/20 transition-colors duration-300"
                   >
                     <Facebook size={20} className="text-foreground" />
