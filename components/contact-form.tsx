@@ -23,7 +23,7 @@ export function ContactForm() {
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {}
-    
+
     if (!formData.name.trim()) {
       newErrors.name = 'Imię i nazwisko jest wymagane'
     }
@@ -48,14 +48,14 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!validateForm()) return
 
     setStatus('submitting')
-    
+
     try {
       // Wpisz tutaj email klienta zamiast "twoj@email.com"
-      const response = await fetch("https://formsubmit.co/ajax/twoj@email.com", {
+      const response = await fetch("https://formsubmit.co/ajax/sayongbonk@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export function ContactForm() {
           phone: `${formData.countryCode} ${formData.phone}`
         }),
       });
-      
+
       const result = await response.json();
       if (response.ok) {
         setStatus('success')
@@ -104,8 +104,7 @@ export function ContactForm() {
   }
 
   const inputClasses = (fieldName: string) =>
-    `w-full px-4 py-4 bg-white border text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] ${
-      errors[fieldName] ? 'border-red-600' : 'border-[#e0e0e0]'
+    `w-full px-4 py-4 bg-white border text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] ${errors[fieldName] ? 'border-red-600' : 'border-[#e0e0e0]'
     }`
 
   return (
@@ -267,13 +266,12 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === 'submitting' || status === 'success'}
-        className={`w-full inline-flex items-center justify-center px-6 py-4 text-[16px] font-lambotype uppercase tracking-[0.023em] transition-colors duration-300 ${
-          status === 'success'
+        className={`w-full inline-flex items-center justify-center px-6 py-4 text-[16px] font-lambotype uppercase tracking-[0.023em] transition-colors duration-300 ${status === 'success'
             ? 'bg-[#202020] text-white'
             : status === 'error'
-            ? 'bg-red-600 text-white'
-            : 'bg-[#ffc000] text-white hover:bg-[#917300]'
-        } disabled:opacity-70 disabled:cursor-not-allowed`}
+              ? 'bg-red-600 text-white'
+              : 'bg-[#ffc000] text-white hover:bg-[#917300]'
+          } disabled:opacity-70 disabled:cursor-not-allowed`}
       >
         {status === 'submitting' && (
           <>

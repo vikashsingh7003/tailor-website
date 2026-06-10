@@ -31,7 +31,7 @@ export function CoursesContact() {
     
     try {
       // Wpisz tutaj email klienta zamiast "twoj@email.com"
-      const response = await fetch("https://formsubmit.co/ajax/twoj@email.com", {
+      const response = await fetch("https://formsubmit.co/ajax/sayongbonk@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
