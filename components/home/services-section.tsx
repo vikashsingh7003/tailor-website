@@ -30,29 +30,27 @@ export function ServicesSection() {
       ...t.services.items.redesign,
     },
   ]
+  
   return (
-    <section className="py-24 lg:py-32 bg-charcoal relative overflow-hidden">
-      {/* Decorative pattern */}
-      <div className="absolute inset-0 fabric-texture opacity-30" />
-
+    <section className="py-20 lg:py-32 bg-[#f5f5f5] relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 relative">
-        {/* Section Header */}
+        {/* Section Heading Block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16 will-change-transform transform-gpu"
+          className="flex flex-col md:flex-row md:items-center justify-between mb-16 will-change-transform transform-gpu gap-6"
         >
-          <span className="text-sm uppercase tracking-widest text-accent">
+          <h2 className="text-[40px] md:text-[54px] font-lambotype uppercase text-[#202020] tracking-[0.023em] leading-tight">
             {t.services.title}
-          </span>
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-cream text-balance">
-            {t.services.subtitle}
           </h2>
+          <Link href="/oferta" className="flex items-center text-[12px] font-lambotype uppercase tracking-[0.023em] text-[#202020] hover:text-[#ffc000] transition-colors duration-300">
+            {t.nav.offers} <span className="ml-2 text-[12px]">&rarr;</span>
+          </Link>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid (Image Tiles) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <motion.div
@@ -64,7 +62,8 @@ export function ServicesSection() {
               className="will-change-transform transform-gpu"
             >
               <Link href="/oferta" className="group block">
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-5">
+                {/* Full-bleed product photograph style */}
+                <div className="relative aspect-[4/3] overflow-hidden mb-6 bg-white">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -72,17 +71,12 @@ export function ServicesSection() {
                     className="object-cover group-hover:scale-105 transition-transform duration-700 will-change-transform transform-gpu"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-charcoal/40 group-hover:bg-charcoal/20 transition-colors duration-500" />
-                  
-                  {/* Title overlay on image */}
-                  <div className="absolute inset-0 flex items-end p-6">
-                    <h3 className="text-xl font-serif font-medium text-cream group-hover:text-accent transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                  </div>
                 </div>
-                <p className="text-cream/70 text-sm leading-relaxed group-hover:text-cream/90 transition-colors duration-300">
+                {/* Caption below image */}
+                <h3 className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2 group-hover:text-[#ffc000] transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed">
                   {service.description}
                 </p>
               </Link>

@@ -80,8 +80,8 @@ export function ContactForm() {
   }
 
   const inputClasses = (fieldName: string) =>
-    `w-full px-4 py-4 bg-card border rounded-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all duration-300 ${
-      errors[fieldName] ? 'border-destructive' : 'border-border'
+    `w-full px-4 py-4 bg-white border text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] ${
+      errors[fieldName] ? 'border-red-600' : 'border-[#e0e0e0]'
     }`
 
   return (
@@ -91,12 +91,12 @@ export function ContactForm() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       onSubmit={handleSubmit}
-      className="space-y-6"
+      className="space-y-6 bg-[#ffffff] p-8 lg:p-12 border border-[#e0e0e0]"
     >
       {/* Name and Email Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-sm uppercase tracking-wider text-foreground mb-2">
+          <label htmlFor="name" className="block text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
             {t.contactForm.name} *
           </label>
           <input
@@ -109,7 +109,7 @@ export function ContactForm() {
             placeholder="Jan Kowalski"
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-destructive flex items-center gap-1">
+            <p className="mt-2 text-[12px] font-lambotype uppercase tracking-[0.023em] text-red-600 flex items-center gap-1">
               <AlertCircle size={14} />
               {errors.name}
             </p>
@@ -117,7 +117,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm uppercase tracking-wider text-foreground mb-2">
+          <label htmlFor="email" className="block text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
             {t.contactForm.email} *
           </label>
           <input
@@ -130,7 +130,7 @@ export function ContactForm() {
             placeholder="jan@example.com"
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-destructive flex items-center gap-1">
+            <p className="mt-2 text-[12px] font-lambotype uppercase tracking-[0.023em] text-red-600 flex items-center gap-1">
               <AlertCircle size={14} />
               {errors.email}
             </p>
@@ -141,7 +141,7 @@ export function ContactForm() {
       {/* Phone and Address Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="phone" className="block text-sm uppercase tracking-wider text-foreground mb-2">
+          <label htmlFor="phone" className="block text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
             {t.contactForm.phone} *
           </label>
           <input
@@ -154,7 +154,7 @@ export function ContactForm() {
             placeholder="+48 123 456 789"
           />
           {errors.phone && (
-            <p className="mt-1 text-sm text-destructive flex items-center gap-1">
+            <p className="mt-2 text-[12px] font-lambotype uppercase tracking-[0.023em] text-red-600 flex items-center gap-1">
               <AlertCircle size={14} />
               {errors.phone}
             </p>
@@ -162,7 +162,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="address" className="block text-sm uppercase tracking-wider text-foreground mb-2">
+          <label htmlFor="address" className="block text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
             {t.contactForm.address}
           </label>
           <input
@@ -179,7 +179,7 @@ export function ContactForm() {
 
       {/* Purpose */}
       <div>
-        <label htmlFor="purpose" className="block text-sm uppercase tracking-wider text-foreground mb-2">
+        <label htmlFor="purpose" className="block text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
           {t.contactForm.purpose} *
         </label>
         <select
@@ -187,16 +187,16 @@ export function ContactForm() {
           name="purpose"
           value={formData.purpose}
           onChange={handleChange}
-          className={inputClasses('purpose')}
+          className={inputClasses('purpose') + ' appearance-none'}
         >
-          <option value="">Wybierz cel zapytania</option>
+          <option value="" disabled>Wybierz cel zapytania</option>
           <option value="tailoring">{t.contactForm.purposes.tailoring}</option>
           <option value="repairs">{t.contactForm.purposes.repairs}</option>
           <option value="consultation">{t.contactForm.purposes.consultation}</option>
           <option value="other">{t.contactForm.purposes.other}</option>
         </select>
         {errors.purpose && (
-          <p className="mt-1 text-sm text-destructive flex items-center gap-1">
+          <p className="mt-2 text-[12px] font-lambotype uppercase tracking-[0.023em] text-red-600 flex items-center gap-1">
             <AlertCircle size={14} />
             {errors.purpose}
           </p>
@@ -205,7 +205,7 @@ export function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm uppercase tracking-wider text-foreground mb-2">
+        <label htmlFor="message" className="block text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
           {t.contactForm.message} *
         </label>
         <textarea
@@ -218,7 +218,7 @@ export function ContactForm() {
           placeholder="Opisz swoje potrzeby..."
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-destructive flex items-center gap-1">
+          <p className="mt-2 text-[12px] font-lambotype uppercase tracking-[0.023em] text-red-600 flex items-center gap-1">
             <AlertCircle size={14} />
             {errors.message}
           </p>
@@ -226,44 +226,42 @@ export function ContactForm() {
       </div>
 
       {/* Submit Button */}
-      <motion.button
+      <button
         type="submit"
         disabled={status === 'submitting' || status === 'success'}
-        whileHover={{ scale: status === 'idle' ? 1.02 : 1 }}
-        whileTap={{ scale: status === 'idle' ? 0.98 : 1 }}
-        className={`w-full py-4 text-sm uppercase tracking-wider rounded-sm flex items-center justify-center gap-2 transition-all duration-300 ${
+        className={`w-full inline-flex items-center justify-center px-6 py-4 text-[16px] font-lambotype uppercase tracking-[0.023em] transition-colors duration-300 ${
           status === 'success'
-            ? 'bg-green-600 text-white'
+            ? 'bg-[#202020] text-white'
             : status === 'error'
-            ? 'bg-destructive text-white'
-            : 'bg-charcoal text-cream hover:bg-soft-brown'
+            ? 'bg-red-600 text-white'
+            : 'bg-[#ffc000] text-white hover:bg-[#917300]'
         } disabled:opacity-70 disabled:cursor-not-allowed`}
       >
         {status === 'submitting' && (
           <>
-            <div className="w-5 h-5 border-2 border-cream/30 border-t-cream rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-3" />
             Wysyłanie...
           </>
         )}
         {status === 'success' && (
           <>
-            <Check size={18} />
+            <Check size={18} className="mr-2" />
             {t.contactForm.success}
           </>
         )}
         {status === 'error' && (
           <>
-            <AlertCircle size={18} />
+            <AlertCircle size={18} className="mr-2" />
             {t.contactForm.error}
           </>
         )}
         {status === 'idle' && (
           <>
-            <Send size={18} />
+            <Send size={18} className="mr-2" />
             {t.contactForm.submit}
           </>
         )}
-      </motion.button>
+      </button>
     </motion.form>
   )
 }

@@ -8,7 +8,6 @@ import { useLanguage } from '@/components/language-provider'
 
 const galleryImages = [
   { src: '/images/gallery-7.jpeg', alt: 'Elegancka suknia ślubna', aspect: 'tall' },
-  // { src: '/images/gallery-1.png', alt: 'Garnitur na miarę', aspect: 'square' },
   { src: '/images/gallery-6.jpeg', alt: 'Suknia wieczorowa', aspect: 'square' },
   { src: '/images/craftsmanship.png', alt: 'Rzemiosło krawieckie', aspect: 'wide' },
   { src: '/images/gallery-3.png', alt: 'Tkaniny premium', aspect: 'square' },
@@ -21,26 +20,23 @@ export function GallerySection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="py-20 lg:py-32 relative overflow-hidden bg-[#ffffff]">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Section Header */}
+        {/* Section Heading Block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16 will-change-transform transform-gpu"
+          className="flex flex-col md:flex-row md:items-center justify-between mb-16 will-change-transform transform-gpu gap-6"
         >
-          <span className="text-sm uppercase tracking-widest text-accent">
-            {t.gallery.title}
-          </span>
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground text-balance">
+          <h2 className="text-[40px] md:text-[54px] font-lambotype uppercase text-[#202020] tracking-[0.023em] leading-tight">
             {t.gallery.subtitle}
           </h2>
         </motion.div>
 
         {/* Masonry Gallery */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           {galleryImages.map((image, index) => (
             <motion.div
               key={image.src}
@@ -52,7 +48,7 @@ export function GallerySection() {
             >
               <button
                 onClick={() => setSelectedImage(image.src)}
-                className="group relative block w-full overflow-hidden rounded-lg cursor-pointer"
+                className="group relative block w-full overflow-hidden cursor-pointer bg-[#f5f5f5]"
               >
                 <div
                   className={`relative ${
@@ -67,13 +63,13 @@ export function GallerySection() {
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform transform-gpu"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 will-change-transform transform-gpu"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/30 transition-colors duration-500 flex items-center justify-center">
-                    <span className="text-cream text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {t.gallery.viewImage || 'Zobacz'}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
+                    <span className="text-[#ffffff] text-[12px] font-lambotype uppercase tracking-[0.023em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {t.gallery.viewImage || 'ZOBACZ'}
                     </span>
                   </div>
                 </div>
@@ -90,29 +86,30 @@ export function GallerySection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-charcoal/95 flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-[#181818]/95 flex items-center justify-center p-4 backdrop-blur-md"
             onClick={() => setSelectedImage(null)}
           >
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-6 w-12 h-12 rounded-full bg-cream/10 flex items-center justify-center hover:bg-cream/20 transition-colors"
+              className="absolute top-6 right-6 w-12 h-12 border border-[#7d7d7d] flex items-center justify-center hover:border-[#ffffff] transition-colors bg-transparent"
               aria-label="Zamknij"
             >
-              <X className="w-6 h-6 text-cream" />
+              <X size={24} className="text-[#ffffff]" />
             </button>
             <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              className="relative max-w-4xl max-h-[90vh] w-full h-full"
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl aspect-[4/3] md:aspect-[16/9] overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
                 src={selectedImage}
-                alt="Powiększony obraz"
+                alt="Powiększone zdjęcie"
                 fill
                 className="object-contain"
-                sizes="100vw"
+                sizes="(max-width: 1024px) 100vw, 1024px"
               />
             </motion.div>
           </motion.div>

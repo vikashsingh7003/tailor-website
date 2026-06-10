@@ -16,6 +16,7 @@ export function Navigation() {
     { href: '/o-mnie', label: t.nav.about },
     { href: '/oferta', label: t.nav.offers },
     { href: '/pracownia', label: t.nav.lab },
+    { href: '/kursy', label: t.nav.course },
     { href: '/kontakt', label: t.nav.contact },
   ]
 
@@ -36,24 +37,23 @@ export function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-black/10 backdrop-blur-md border-b border-white/10 ${isScrolled ? 'shadow-sm' : ''}`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#202020]"
     >
       <nav className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="group">
             <motion.span
-              className="font-serif font-medium text-foreground leading-tight text-balance flex items-center justify-center"
+              className="flex items-center justify-center"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-              <img src="/images/logo-wiwi.png" alt="WIWI Logo" className='w-60 h-60 object-contain' />
-
+              <img src="/images/logo-wiwi.png" alt="WIWI Logo" className='h-32 w-32 object-contain -ml-4' />
             </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-10 mix-blend-difference text-white">
+          <div className="hidden lg:flex items-center gap-10 text-white">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -63,10 +63,9 @@ export function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className="relative text-sm tracking-wider uppercase opacity-80 hover:opacity-100 transition-opacity duration-300 group"
+                  className="relative text-[16px] tracking-[0.023em] font-lambotype uppercase opacity-80 hover:opacity-100 hover:text-[#ffc000] transition-colors duration-300 group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
                 </Link>
               </motion.div>
             ))}
@@ -74,7 +73,7 @@ export function Navigation() {
             {/* Language Toggle Desktop */}
             <motion.button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 text-sm font-medium tracking-widest opacity-80 hover:opacity-100 transition-opacity duration-300"
+              className="flex items-center gap-2 text-[16px] font-lambotype uppercase tracking-[0.023em] opacity-80 hover:opacity-100 hover:text-[#ffc000] transition-colors duration-300"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: navLinks.length * 0.1 }}
@@ -85,20 +84,20 @@ export function Navigation() {
           </div>
 
           {/* Mobile Actions */}
-          <div className="flex items-center gap-4 lg:hidden mix-blend-difference text-white">
+          <div className="flex items-center gap-4 lg:hidden text-white">
             {/* Language Toggle Mobile */}
             <button
               onClick={toggleLanguage}
-              className="p-2 opacity-80 hover:opacity-100 transition-opacity flex items-center justify-center"
+              className="p-2 opacity-80 hover:opacity-100 hover:text-[#ffc000] transition-colors flex items-center justify-center"
               aria-label="Toggle language"
             >
-              <span className="text-sm font-semibold tracking-widest">{language.toUpperCase()}</span>
+              <span className="text-[16px] font-lambotype uppercase tracking-[0.023em]">{language.toUpperCase()}</span>
             </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 opacity-100"
+              className="p-2 opacity-100 hover:text-[#ffc000] transition-colors"
               aria-label={isMobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -115,7 +114,7 @@ export function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-t border-border/50 shadow-xl"
+            className="lg:hidden absolute top-full left-0 right-0 bg-[#202020] border-t border-[#494949] shadow-2xl"
           >
             <div className="container mx-auto px-6 py-8">
               <div className="flex flex-col gap-6">
@@ -129,7 +128,7 @@ export function Navigation() {
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-lg tracking-wider uppercase text-foreground/80 hover:text-foreground transition-colors"
+                      className="block text-[27px] font-lambotype tracking-[0.023em] uppercase text-white/80 hover:text-[#ffc000] transition-colors"
                     >
                       {link.label}
                     </Link>

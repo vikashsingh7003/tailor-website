@@ -4,128 +4,99 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Luxury Tailoring Color Palette - Warm Neutrals */
-  --background: oklch(0.98 0.005 80);       /* Warm cream */
-  --foreground: oklch(0.20 0.02 50);        /* Warm charcoal */
-  --card: oklch(0.99 0.003 80);             /* Off-white */
-  --card-foreground: oklch(0.20 0.02 50);
-  --popover: oklch(0.99 0.003 80);
-  --popover-foreground: oklch(0.20 0.02 50);
-  --primary: oklch(0.25 0.02 50);           /* Warm black */
-  --primary-foreground: oklch(0.98 0.005 80);
-  --secondary: oklch(0.92 0.015 75);        /* Warm beige */
-  --secondary-foreground: oklch(0.25 0.02 50);
-  --muted: oklch(0.94 0.01 75);             /* Soft cream */
-  --muted-foreground: oklch(0.45 0.02 50);
-  --accent: oklch(0.65 0.08 75);            /* Muted gold */
-  --accent-foreground: oklch(0.20 0.02 50);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0.015 75);           /* Warm border */
-  --input: oklch(0.92 0.01 75);
-  --ring: oklch(0.65 0.08 75);              /* Gold ring */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  
-  /* Custom colors for the design */
-  --cream: oklch(0.97 0.008 80);
-  --blush: oklch(0.90 0.03 30);
-  --gold: oklch(0.65 0.08 75);
-  --charcoal: oklch(0.25 0.02 50);
-  --soft-brown: oklch(0.55 0.05 60);
+  /* Colors */
+  --color-giallo-vivo: #ffc000;
+  --color-giallo-ombra: #917300;
+  --color-carbony-black: #202020;
+  --color-pure-black: #000000;
+  --color-carbon-deep: #181818;
+  --color-pearl-white: #ffffff;
+  --color-marble-gray: #f5f5f5;
+  --color-graphite-border: #494949;
+  --color-steel-mid: #7d7d7d;
+  --color-ash-border: #969696;
+  --color-anvil: #313131;
+
+  /* Typography — Scale */
+  --text-caption: 10px;
+  --leading-caption: 1.5;
+  --text-body: 16px;
+  --leading-body: 1.5;
+  --text-subheading: 18px;
+  --leading-subheading: 1.5;
+  --text-heading-sm: 27px;
+  --leading-heading-sm: 1.37;
+  --text-heading: 32px;
+  --leading-heading: 1.38;
+  --text-heading-lg: 40px;
+  --leading-heading-lg: 1.19;
+  --text-display: 54px;
+  --leading-display: 1.13;
+  --text-display-lg: 80px;
+  --leading-display-lg: 1;
+  --text-hero: 120px;
+  --leading-hero: 0.92;
+
+  /* Spacing */
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-160: 160px;
 }
 
 @theme inline {
-  --font-sans: var(--font-lato), system-ui, sans-serif;
-  --font-serif: var(--font-cormorant), Georgia, serif;
-  --font-script: var(--font-great-vibes), cursive;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  
-  /* Custom color utilities */
-  --color-cream: var(--cream);
-  --color-blush: var(--blush);
-  --color-gold: var(--gold);
-  --color-charcoal: var(--charcoal);
-  --color-soft-brown: var(--soft-brown);
+  /* Colors */
+  --color-giallo-vivo: var(--color-giallo-vivo);
+  --color-giallo-ombra: var(--color-giallo-ombra);
+  --color-carbony-black: var(--color-carbony-black);
+  --color-pure-black: var(--color-pure-black);
+  --color-carbon-deep: var(--color-carbon-deep);
+  --color-pearl-white: var(--color-pearl-white);
+  --color-marble-gray: var(--color-marble-gray);
+  --color-graphite-border: var(--color-graphite-border);
+  --color-steel-mid: var(--color-steel-mid);
+  --color-ash-border: var(--color-ash-border);
+  --color-anvil: var(--color-anvil);
+
+  /* Typography */
+  --font-lambotype: var(--font-lambotype), ui-sans-serif, system-ui, sans-serif;
+  --font-open-sans: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Aliases for surfaces */
+  --color-canvas-white: var(--color-pearl-white);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-pearl-white);
+    color: var(--color-carbony-black);
   }
   
-  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
 }
 
-/* Custom scrollbar for luxury feel */
+/* Custom scrollbar for hard-edged industrial feel */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--muted);
+  background: var(--color-carbon-deep);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 4px;
+  background: var(--color-graphite-border);
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--soft-brown);
-}
-
-/* Fabric texture overlay utility */
-.fabric-texture {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-}
-
-/* Stitch pattern decoration */
-.stitch-border {
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 4px,
-    var(--accent) 4px,
-    var(--accent) 8px
-  );
-  background-size: 12px 2px;
-  background-repeat: repeat-x;
+  background: var(--color-steel-mid);
 }

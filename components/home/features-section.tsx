@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Scissors, Ruler, Sparkles, Ribbon, UserCheck } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 
@@ -35,28 +36,32 @@ export function FeaturesSection() {
     },
   ]
   return (
-    <section className="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 fabric-texture" />
+    <section className="py-20 lg:py-32 relative overflow-hidden flex items-center min-h-[80vh]">
+      {/* Background Image */}
+      <Image
+        src="/images/craftsmanship.png"
+        alt="Craftsmanship"
+        fill
+        className="object-cover"
+      />
+      {/* Overlay to ensure contrast */}
+      <div className="absolute inset-0 bg-[#202020]/40 mix-blend-multiply" />
 
-      <div className="container mx-auto px-6 lg:px-12 relative">
-        {/* Section Header */}
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        {/* Section Heading Block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16 will-change-transform transform-gpu"
+          className="flex flex-col md:flex-row md:items-center justify-between mb-16 will-change-transform transform-gpu gap-6"
         >
-          <span className="text-sm uppercase tracking-widest text-accent">
-            {t.features.title}
-          </span>
-          <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground text-balance">
+          <h2 className="text-[40px] md:text-[54px] font-lambotype uppercase text-[#ffffff] tracking-[0.023em] leading-tight drop-shadow-md">
             {t.features.subtitle}
           </h2>
         </motion.div>
 
-        {/* Features Grid */}
+        {/* Features Grid with Glassmorphism */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {features.map((feature, index) => (
             <motion.div
@@ -65,19 +70,19 @@ export function FeaturesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="group will-change-transform transform-gpu"
+              className="group will-change-transform transform-gpu p-6 lg:p-8 bg-[#202020]/30 backdrop-blur-md border border-white/10 rounded-xl hover:bg-[#202020]/50 hover:border-white/20 transition-all duration-300"
             >
-              <div className="h-full p-8 bg-card/80 backdrop-blur-sm rounded-lg border border-border/50 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-500 hover:-translate-y-1">
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
-                  <feature.icon className="w-6 h-6 text-accent" />
+              <div className="h-full flex flex-col items-start">
+                {/* Structural Icon */}
+                <div className="mb-6">
+                  <feature.icon className="w-8 h-8 text-[#ffc000]" strokeWidth={1.5} />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-serif font-medium text-foreground mb-3">
+                <h3 className="text-[16px] font-lambotype uppercase text-[#ffffff] tracking-[0.023em] mb-4 group-hover:text-[#ffc000] transition-colors duration-300 drop-shadow-sm">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#e0e0e0] leading-relaxed drop-shadow-sm">
                   {feature.description}
                 </p>
               </div>

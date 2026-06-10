@@ -3,13 +3,12 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 
 export function AboutPreviewSection() {
   const { t } = useLanguage()
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="py-20 lg:py-32 relative overflow-hidden bg-[#ffffff]">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image Side */}
@@ -20,7 +19,7 @@ export function AboutPreviewSection() {
             transition={{ duration: 0.6 }}
             className="relative order-2 lg:order-1 will-change-transform transform-gpu"
           >
-            <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
+            <div className="relative aspect-[4/5] overflow-hidden bg-[#f5f5f5]">
               <Image
                 src="/images/craftsmanship.png"
                 alt="Rzemiosło krawieckie"
@@ -28,10 +27,7 @@ export function AboutPreviewSection() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent" />
             </div>
-
           </motion.div>
 
           {/* Content Side */}
@@ -42,13 +38,13 @@ export function AboutPreviewSection() {
             transition={{ duration: 0.6 }}
             className="order-1 lg:order-2 will-change-transform transform-gpu"
           >
-            <span className="text-sm uppercase tracking-widest text-accent">
+            <span className="text-[12px] uppercase tracking-[0.023em] font-lambotype text-[#7d7d7d] block mb-4">
               {t.aboutPreview.title}
             </span>
-            <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight text-balance">
+            <h2 className="text-[40px] md:text-[54px] font-lambotype uppercase text-[#202020] leading-tight text-balance mb-6">
               {t.aboutPreview.subtitle}
             </h2>
-            <p className="mt-6 text-muted-foreground leading-relaxed text-lg">
+            <p className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed max-w-xl">
               {t.aboutPreview.description}
             </p>
 
@@ -61,10 +57,9 @@ export function AboutPreviewSection() {
             >
               <Link
                 href="/o-mnie"
-                className="group inline-flex items-center gap-3 text-sm uppercase tracking-wider text-foreground hover:text-accent transition-colors duration-300"
+                className="inline-flex items-center text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#202020] hover:text-[#ffc000] transition-colors duration-300"
               >
-                {t.aboutPreview.cta}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                {t.aboutPreview.cta} <span className="ml-2 text-[16px]">&rarr;</span>
               </Link>
             </motion.div>
           </motion.div>

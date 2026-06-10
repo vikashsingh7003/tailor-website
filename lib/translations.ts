@@ -6,6 +6,7 @@ export const translations = {
       about: 'O Mnie',
       offers: 'Oferta',
       lab: 'Pracownia',
+      course: 'Kursy',
       contact: 'Kontakt',
     },
     // Hero Section
@@ -285,6 +286,132 @@ export const translations = {
       infoTitle: 'Dane Kontaktowe',
       mapTitle: 'Lokalizacja',
     },
+    // Courses Page
+    coursesPage: {
+      hero: {
+        title: 'Naucz się Szycia,\nStwórz Swój Styl',
+        description: 'Dołącz do naszych stacjonarnych kursów krawieckich i uwolnij swoją kreatywność. Ucz się od ekspertów w przyjaznej atmosferze.',
+        joinCourse: 'Dołącz do kursu',
+        learnMore: 'Dowiedz się więcej',
+      },
+      whyLearn: {
+        title: 'Dlaczego warto uczyć się z nami?',
+        items: {
+          handsOn: {
+            title: 'Zajęcia Praktyczne',
+            description: 'Praktyczna nauka pod okiem profesjonalistów.',
+          },
+          expert: {
+            title: 'Doświadczeni Instruktorzy',
+            description: 'Ucz się od doświadczonych krawców i projektantów.',
+          },
+          friendly: {
+            title: 'Przyjazna Atmosfera',
+            description: 'Małe grupy dla lepszej nauki i komfortu.',
+          },
+          inPerson: {
+            title: 'Zajęcia Stacjonarne',
+            description: 'Spotkajmy się na żywo, aby lepiej się uczyć i rozwijać umiejętności.',
+          },
+        }
+      },
+      popularCourses: {
+        title: 'Nasze Popularne Kursy',
+        viewDetails: 'Szczegóły',
+      },
+      courses: {
+        title: 'Nasze Kursy',
+        subtitle: 'Strona Główna / Kursy',
+        enrolNow: 'Zapisz się',
+        durationLabel: 'Czas trwania:',
+        batchLabel: 'Wielkość grupy:',
+        modeLabel: 'Tryb:',
+        items: {
+          basic: {
+            title: 'Podstawowy kurs szycia',
+            description: 'Idealny kurs dla początkujących. Poznasz podstawy szycia, różne ściegi, obsługę maszyny i wiele więcej.',
+            duration: '2 Miesiące',
+            batch: '10 Osób',
+            mode: 'Stacjonarnie',
+          },
+          dress: {
+            title: 'Kurs krawiectwa miarowego',
+            description: 'Naucz się rysować formy, kroić i szyć piękne suknie, garnitury, sukienki i inne kreacje.',
+            duration: '3 Miesiące',
+            batch: '10 Osób',
+            mode: 'Stacjonarnie',
+          },
+          advanced: {
+            title: 'Zaawansowany kurs szycia',
+            description: 'Przenieś swoje umiejętności na wyższy poziom dzięki zaawansowanym technikom i profesjonalnemu wykończeniu.',
+            duration: '3 Miesiące',
+            batch: '10 Osób',
+            mode: 'Stacjonarnie',
+          },
+          embroidery: {
+            title: 'Kurs haftu',
+            description: 'Odkryj sztukę haftu dzięki technikom haftu ręcznego i maszynowego.',
+            duration: '2 Miesiące',
+            batch: '10 Osób',
+            mode: 'Stacjonarnie',
+          },
+        }
+      },
+      ctaBanner: {
+        title: 'Gotowa na rozpoczęcie swojej krawieckiej przygody?',
+        description: 'Dołącz do naszych zajęć stacjonarnych i zamień swoją pasję w umiejętności.',
+        enrolNow: 'Zapisz się',
+      },
+      studentsSay: {
+        title: 'Co mówią nasi kursanci',
+        reviews: [
+          {
+            text: '"Wspaniałe doświadczenie! Nauczyciele są bardzo pomocni, a zajęcia bardzo praktyczne."',
+            author: 'Anna Kowalska',
+            rating: 5
+          },
+          {
+            text: '"Nauczyłam się tak wiele w krótkim czasie. Atmosfera jest bardzo przyjazna i motywująca."',
+            author: 'Ewa Nowak',
+            rating: 5
+          },
+          {
+            text: '"To najlepszy kurs szycia, na jakim byłam. Gorąco polecam!"',
+            author: 'Magdalena Wiśniewska',
+            rating: 5
+          }
+        ]
+      },
+      ctaBannerSmall: {
+        text: 'Wszystkie zajęcia odbywają się stacjonarnie. Ograniczona liczba miejsc. Zapisz się już teraz!',
+        enrolNow: 'Zapisz się',
+      },
+      classDetails: {
+        title: 'Szczegóły Zajęć',
+        day: 'Dni: Poniedziałek - Piątek',
+        time: 'Godziny: 10:00 - 13:00',
+        location: 'Lokalizacja: Jana Pawła II 65 93-570, Łódź',
+        phone: 'Telefon: +48 660 989 475',
+        payment: 'Płatność: Tylko Osobiście',
+        enrolNow: 'Zapisz się',
+      },
+      enrollForm: {
+        title: 'Zapisz się na kurs',
+        subtitle: 'Wypełnij poniższy formularz, aby zarezerwować miejsce.',
+        name: 'Imię i nazwisko',
+        phone: 'Numer telefonu',
+        email: 'Adres e-mail',
+        course: 'Wybierz kurs',
+        courseOptions: {
+          basic: 'Podstawowy kurs szycia',
+          dress: 'Kurs krawiectwa miarowego',
+          advanced: 'Zaawansowany kurs szycia',
+          embroidery: 'Kurs haftu',
+        },
+        message: 'Dodatkowe pytania lub prośby?',
+        submit: 'Wyślij zgłoszenie',
+      }
+    },
     machines: [
       'stębnówka',
       'overlock',
@@ -301,6 +428,7 @@ export const translations = {
       about: 'About',
       offers: 'Offer',
       lab: 'Atelier',
+      course: 'Courses',
       contact: 'Contact',
     },
     // Hero Section
@@ -579,6 +707,132 @@ export const translations = {
       heroSubtitle: 'Get in touch with us',
       infoTitle: 'Contact Details',
       mapTitle: 'Location',
+    },
+    // Courses Page
+    coursesPage: {
+      hero: {
+        title: 'Learn Stitching,\nCreate Your Style',
+        description: 'Join our in-person stitching courses and bring your creativity to life. Learn from expert teachers in a friendly environment.',
+        joinCourse: 'Join a Course',
+        learnMore: 'Learn More',
+      },
+      whyLearn: {
+        title: 'Why Learn With Us?',
+        items: {
+          handsOn: {
+            title: 'Hands-on Training',
+            description: 'Practical learning with personal guidance.',
+          },
+          expert: {
+            title: 'Expert Instructors',
+            description: 'Learn from experienced stitching professionals.',
+          },
+          friendly: {
+            title: 'Friendly Environment',
+            description: 'Small batches for better learning and comfort.',
+          },
+          inPerson: {
+            title: 'In-Person Classes',
+            description: 'Meet in person, learn better and grow your skills.',
+          },
+        }
+      },
+      popularCourses: {
+        title: 'Our Popular Courses',
+        viewDetails: 'View Details',
+      },
+      courses: {
+        title: 'Our Courses',
+        subtitle: 'Home / Courses',
+        enrolNow: 'Enrol Now',
+        durationLabel: 'Duration:',
+        batchLabel: 'Batch Size:',
+        modeLabel: 'Mode:',
+        items: {
+          basic: {
+            title: 'Basic Stitching Course',
+            description: 'This course is perfect for beginners. Learn the basics of stitching, different stitches, machine operation and more.',
+            duration: '2 Months',
+            batch: '10 Students',
+            mode: 'In-Person',
+          },
+          dress: {
+            title: 'Dress Making Course',
+            description: 'Learn to draft patterns, cut and stitch beautiful dresses like kurti, suits, frocks and more.',
+            duration: '3 Months',
+            batch: '10 Students',
+            mode: 'In-Person',
+          },
+          advanced: {
+            title: 'Advanced Stitching Course',
+            description: 'Take your skills to the next level with advanced techniques and professional finishing.',
+            duration: '3 Months',
+            batch: '10 Students',
+            mode: 'In-Person',
+          },
+          embroidery: {
+            title: 'Embroidery Course',
+            description: 'Explore the art of embroidery with both hand and machine embroidery techniques.',
+            duration: '2 Months',
+            batch: '10 Students',
+            mode: 'In-Person',
+          },
+        }
+      },
+      ctaBanner: {
+        title: 'Ready to Start Your Stitching Journey?',
+        description: 'Join our in-person classes today and turn your passion into a skill.',
+        enrolNow: 'Enrol Now',
+      },
+      studentsSay: {
+        title: 'What Our Students Say',
+        reviews: [
+          {
+            text: '"Great experience! The teachers are very supportive and classes are very practical."',
+            author: 'Neha Sharma',
+            rating: 5
+          },
+          {
+            text: '"I learned so much in a short time. The environment is very friendly and motivating."',
+            author: 'Priya Mehta',
+            rating: 5
+          },
+          {
+            text: '"It\'s the best stitching class I have ever joined. Highly recommended!"',
+            author: 'Anjali Verma',
+            rating: 5
+          }
+        ]
+      },
+      ctaBannerSmall: {
+        text: 'All classes are conducted in person. Limited seats available in each batch. Enrol now to secure your seat!',
+        enrolNow: 'Enrol Now',
+      },
+      classDetails: {
+        title: 'Class Details',
+        day: 'Day: Monday to Friday',
+        time: 'Time: 10:00 AM - 1:00 PM',
+        location: 'Location: Jana Pawła II 65 93-570, Łódź',
+        phone: 'Phone: +48 660 989 475',
+        payment: 'Payment: In Person Only',
+        enrolNow: 'Enrol Now',
+      },
+      enrollForm: {
+        title: 'Enrol in a Course',
+        subtitle: 'Fill out the form below to secure your seat.',
+        name: 'Your Name',
+        phone: 'Phone Number',
+        email: 'Email Address',
+        course: 'Select Course',
+        courseOptions: {
+          basic: 'Basic Stitching Course',
+          dress: 'Dress Making Course',
+          advanced: 'Advanced Stitching Course',
+          embroidery: 'Embroidery Course',
+        },
+        message: 'Any questions or special requests?',
+        submit: 'Submit Enrollment',
+      }
     },
     machines: [
       'lockstitch',

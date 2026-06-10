@@ -1,27 +1,20 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Lato, Great_Vibes } from 'next/font/google'
+import { Barlow_Condensed, Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/components/language-provider'
 import './globals.css'
 
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-cormorant',
-  display: 'swap',
-})
-
-const lato = Lato({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['300', '400', '700'],
-  variable: '--font-lato',
-  display: 'swap',
-})
-
-const greatVibes = Great_Vibes({
+const lamboType = Barlow_Condensed({
   subsets: ['latin', 'latin-ext'],
   weight: ['400'],
-  variable: '--font-great-vibes',
+  variable: '--font-lambotype',
+  display: 'swap',
+})
+
+const openSans = Open_Sans({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400'],
+  variable: '--font-open-sans',
   display: 'swap',
 })
 
@@ -94,8 +87,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pl" className={`${cormorant.variable} ${lato.variable} ${greatVibes.variable} bg-background`}>
-      <body className="font-sans antialiased overflow-x-hidden">
+    <html lang="pl" className={`${lamboType.variable} ${openSans.variable} bg-canvas-white`}>
+      <body className="font-lambotype text-carbony-black antialiased overflow-x-hidden uppercase tracking-[0.023em]">
         <LanguageProvider>
           {children}
         </LanguageProvider>
