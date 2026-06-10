@@ -13,6 +13,7 @@ export function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     address: '',
+    countryCode: '+48',
     phone: '',
     email: '',
     purpose: '',
@@ -63,7 +64,8 @@ export function ContactForm() {
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
           subject: "Nowe zapytanie kontaktowe - WiWi",
           from_name: formData.name,
-          ...formData
+          ...formData,
+          phone: `${formData.countryCode} ${formData.phone}`
         }),
       });
       
@@ -73,15 +75,18 @@ export function ContactForm() {
         setFormData({
           name: '',
           address: '',
+          countryCode: '+48',
           phone: '',
           email: '',
           purpose: '',
           message: '',
         })
       } else {
+        console.error("Web3Forms error:", result);
         setStatus('error')
       }
     } catch (error) {
+      console.error("Fetch error:", error);
       setStatus('error')
     }
 
@@ -164,15 +169,29 @@ export function ContactForm() {
           <label htmlFor="phone" className="block text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
             {t.contactForm.phone} *
           </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className={inputClasses('phone')}
-            placeholder="+48 123 456 789"
-          />
+          <div className="flex">
+            <select
+              name="countryCode"
+              value={formData.countryCode}
+              onChange={handleChange}
+              className="px-4 py-4 bg-white border border-r-0 border-[#e0e0e0] text-[#202020] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] appearance-none cursor-pointer min-w-[80px] text-center"
+            >
+              <option value="+48">+48</option>
+              <option value="+44">+44</option>
+              <option value="+1">+1</option>
+              <option value="+49">+49</option>
+              <option value="+33">+33</option>
+            </select>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className={inputClasses('phone')}
+              placeholder="123 456 789"
+            />
+          </div>
           {errors.phone && (
             <p className="mt-2 text-[12px] font-lambotype uppercase tracking-[0.023em] text-red-600 flex items-center gap-1">
               <AlertCircle size={14} />

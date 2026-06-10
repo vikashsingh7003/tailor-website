@@ -14,6 +14,7 @@ export function CoursesContact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [formData, setFormData] = useState({
     name: '',
+    countryCode: '+48',
     phone: '',
     email: '',
     course: '',
@@ -39,18 +40,21 @@ export function CoursesContact() {
           access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
           subject: "Nowe zapisy na kurs - WiWi",
           from_name: formData.name,
-          ...formData
+          ...formData,
+          phone: `${formData.countryCode} ${formData.phone}`
         }),
       });
       
       const result = await response.json();
       if (result.success) {
         setStatus('success')
-        setFormData({ name: '', phone: '', email: '', course: '', message: '' })
+        setFormData({ name: '', countryCode: '+48', phone: '', email: '', course: '', message: '' })
       } else {
+        console.error("Web3Forms error:", result);
         setStatus('error')
       }
     } catch (error) {
+      console.error("Fetch error:", error);
       setStatus('error')
     }
 
@@ -151,15 +155,29 @@ export function CoursesContact() {
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder={data.enrollForm.phone}
-                    required
-                    className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
-                  />
+                  <div className="flex">
+                    <select
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleChange}
+                      className="px-4 py-4 bg-white border border-r-0 border-[#e0e0e0] text-[#202020] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] appearance-none cursor-pointer min-w-[80px] text-center"
+                    >
+                      <option value="+48">+48</option>
+                      <option value="+44">+44</option>
+                      <option value="+1">+1</option>
+                      <option value="+49">+49</option>
+                      <option value="+33">+33</option>
+                    </select>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder={data.enrollForm.phone}
+                      required
+                      className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
+                    />
+                  </div>
                   <input
                     type="email"
                     name="email"
