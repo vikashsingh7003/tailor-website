@@ -154,12 +154,12 @@ export function CoursesContact() {
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="flex">
+                  <div className="flex w-full">
                     <select
                       name="countryCode"
                       value={formData.countryCode}
                       onChange={handleChange}
-                      className="px-4 py-4 bg-white border border-r-0 border-[#e0e0e0] text-[#202020] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] appearance-none cursor-pointer min-w-[80px] text-center"
+                      className="px-4 py-4 bg-white border border-r-0 border-[#e0e0e0] text-[#202020] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] appearance-none cursor-pointer shrink-0 min-w-[110px] text-center"
                     >
                       <option value="+48">🇵🇱 +48</option>
                       <option value="+44">🇬🇧 +44</option>
@@ -174,7 +174,7 @@ export function CoursesContact() {
                       onChange={handleChange}
                       placeholder={data.enrollForm.phone}
                       required
-                      className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
+                      className="w-full flex-1 min-w-0 bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
                     />
                   </div>
                   <input
