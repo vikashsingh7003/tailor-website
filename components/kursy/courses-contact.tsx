@@ -154,12 +154,12 @@ export function CoursesContact() {
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="flex w-full">
+                  <div className="flex flex-col sm:flex-row w-full gap-3 sm:gap-0">
                     <select
                       name="countryCode"
                       value={formData.countryCode}
                       onChange={handleChange}
-                      className="px-4 py-4 bg-white border border-r-0 border-[#e0e0e0] text-[#202020] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] appearance-none cursor-pointer shrink-0 min-w-[110px] text-center"
+                      className="px-4 py-4 bg-white border border-[#e0e0e0] sm:border-r-0 text-[#202020] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] appearance-none cursor-pointer shrink-0 sm:min-w-[110px] text-center"
                     >
                       <option value="+48">🇵🇱 +48</option>
                       <option value="+44">🇬🇧 +44</option>
