@@ -30,23 +30,22 @@ export function CoursesContact() {
     setStatus('submitting')
     
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Wpisz tutaj email klienta zamiast "twoj@email.com"
+      const response = await fetch("https://formsubmit.co/ajax/twoj@email.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
-          subject: "Nowe zapisy na kurs - WiWi",
-          from_name: formData.name,
+          _subject: "Nowe zapisy na kurs - WiWi",
           ...formData,
           phone: `${formData.countryCode} ${formData.phone}`
         }),
       });
       
       const result = await response.json();
-      if (result.success) {
+      if (response.ok) {
         setStatus('success')
         setFormData({ name: '', countryCode: '+48', phone: '', email: '', course: '', message: '' })
       } else {

@@ -54,23 +54,22 @@ export function ContactForm() {
     setStatus('submitting')
     
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Wpisz tutaj email klienta zamiast "twoj@email.com"
+      const response = await fetch("https://formsubmit.co/ajax/twoj@email.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
-          subject: "Nowe zapytanie kontaktowe - WiWi",
-          from_name: formData.name,
+          _subject: "Nowe zapytanie kontaktowe - WiWi",
           ...formData,
           phone: `${formData.countryCode} ${formData.phone}`
         }),
       });
       
       const result = await response.json();
-      if (result.success) {
+      if (response.ok) {
         setStatus('success')
         setFormData({
           name: '',
