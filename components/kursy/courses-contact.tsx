@@ -3,12 +3,59 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import { useLanguage } from '@/components/language-provider'
-import { Calendar, Clock, MapPin, CreditCard, Phone } from 'lucide-react'
+import { Calendar, Clock, MapPin, CreditCard, Phone, AlertCircle, Check } from 'lucide-react'
 
 export function CoursesContact() {
   const { t } = useLanguage()
   const data = t.coursesPage
+
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    course: '',
+    message: ''
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('submitting')
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
+          subject: "Nowe zapisy na kurs - WiWi",
+          from_name: formData.name,
+          ...formData
+        }),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success')
+        setFormData({ name: '', phone: '', email: '', course: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch (error) {
+      setStatus('error')
+    }
+
+    setTimeout(() => setStatus('idle'), 4000)
+  }
 
   return (
     <section className="bg-[#f5f5f5] py-20 lg:py-32 border-t border-[#e0e0e0]">
@@ -73,60 +120,97 @@ export function CoursesContact() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-[#ffffff] p-8 lg:p-12"
+            className="bg-[#ffffff] p-8 lg:p-12 relative"
           >
             <h3 className="text-[24px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-4">{data.enrollForm.title}</h3>
             <p className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] mb-10">{data.enrollForm.subtitle}</p>
 
-            <form className="space-y-6">
-              <div>
-                <input
-                  type="text"
-                  placeholder={data.enrollForm.name}
-                  required
-                  className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
-                />
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div className="w-16 h-16 bg-[#ffc000]/10 rounded-full flex items-center justify-center mb-4">
+                  <Check className="text-[#ffc000]" size={32} />
+                </div>
+                <h4 className="text-[20px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
+                  Zgłoszenie wysłane!
+                </h4>
+                <p className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d]">
+                  Odezwiemy się do Ciebie wkrótce.
+                </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <input
-                  type="tel"
-                  placeholder={data.enrollForm.phone}
-                  required
-                  className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
-                />
-                <input
-                  type="email"
-                  placeholder={data.enrollForm.email}
-                  className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
-                />
-              </div>
-              <div>
-                <select 
-                  defaultValue=""
-                  required
-                  className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] invalid:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all appearance-none text-[16px] font-lambotype uppercase tracking-[0.023em]"
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder={data.enrollForm.name}
+                    required
+                    className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
+                  />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder={data.enrollForm.phone}
+                    required
+                    className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder={data.enrollForm.email}
+                    className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
+                  />
+                </div>
+                <div>
+                  <select 
+                    name="course"
+                    value={formData.course}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] invalid:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all appearance-none text-[16px] font-lambotype uppercase tracking-[0.023em]"
+                  >
+                    <option value="" disabled>{data.enrollForm.course}</option>
+                    <option value="basic">{data.enrollForm.courseOptions.basic}</option>
+                    <option value="dress">{data.enrollForm.courseOptions.dress}</option>
+                    <option value="advanced">{data.enrollForm.courseOptions.advanced}</option>
+                    <option value="embroidery">{data.enrollForm.courseOptions.embroidery}</option>
+                  </select>
+                </div>
+                <div>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder={data.enrollForm.message}
+                    rows={4}
+                    className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all resize-none text-[16px] font-lambotype uppercase tracking-[0.023em]"
+                  />
+                </div>
+                
+                {status === 'error' && (
+                  <p className="text-red-600 text-[14px] font-lambotype uppercase tracking-[0.023em] flex items-center gap-2">
+                    <AlertCircle size={16} />
+                    Wystąpił błąd. Spróbuj ponownie później.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="w-full inline-flex items-center justify-center px-6 py-4 bg-[#202020] text-white text-[16px] font-lambotype uppercase tracking-[0.023em] hover:bg-[#ffc000] disabled:bg-[#7d7d7d] transition-colors duration-300 mt-4"
                 >
-                  <option value="" disabled>{data.enrollForm.course}</option>
-                  <option value="basic">{data.enrollForm.courseOptions.basic}</option>
-                  <option value="dress">{data.enrollForm.courseOptions.dress}</option>
-                  <option value="advanced">{data.enrollForm.courseOptions.advanced}</option>
-                  <option value="embroidery">{data.enrollForm.courseOptions.embroidery}</option>
-                </select>
-              </div>
-              <div>
-                <textarea
-                  placeholder={data.enrollForm.message}
-                  rows={4}
-                  className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all resize-none text-[16px] font-lambotype uppercase tracking-[0.023em]"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full inline-flex items-center justify-center px-6 py-4 bg-[#202020] text-white text-[16px] font-lambotype uppercase tracking-[0.023em] hover:bg-[#ffc000] transition-colors duration-300 mt-4"
-              >
-                {data.enrollForm.submit}
-              </button>
-            </form>
+                  {status === 'submitting' ? 'Wysyłanie...' : data.enrollForm.submit}
+                </button>
+              </form>
+            )}
           </motion.div>
 
         </div>

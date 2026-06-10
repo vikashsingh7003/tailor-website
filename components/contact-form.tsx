@@ -52,18 +52,38 @@ export function ContactForm() {
 
     setStatus('submitting')
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    
-    setStatus('success')
-    setFormData({
-      name: '',
-      address: '',
-      phone: '',
-      email: '',
-      purpose: '',
-      message: '',
-    })
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
+          subject: "Nowe zapytanie kontaktowe - WiWi",
+          from_name: formData.name,
+          ...formData
+        }),
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success')
+        setFormData({
+          name: '',
+          address: '',
+          phone: '',
+          email: '',
+          purpose: '',
+          message: '',
+        })
+      } else {
+        setStatus('error')
+      }
+    } catch (error) {
+      setStatus('error')
+    }
 
     // Reset status after 3 seconds
     setTimeout(() => setStatus('idle'), 3000)
