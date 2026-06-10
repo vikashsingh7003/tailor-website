@@ -153,7 +153,7 @@ export function CoursesContact() {
                     className="w-full bg-white border border-[#e0e0e0] px-4 py-4 text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:border-[#202020] focus:ring-0 transition-all text-[16px] font-lambotype uppercase tracking-[0.023em]"
                   />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6">
                   <div className="flex flex-col sm:flex-row w-full gap-3 sm:gap-0">
                     <select
                       name="countryCode"
