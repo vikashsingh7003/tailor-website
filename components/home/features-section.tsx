@@ -2,39 +2,38 @@
 
 import { motion } from 'framer-motion'
 import { Scissors, Ruler, Sparkles, Ribbon, UserCheck } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
-
-const features = [
-  {
-    icon: Scissors,
-    title: t.features.items.handStitching.title,
-    description: t.features.items.handStitching.description,
-  },
-  {
-    icon: Ruler,
-    title: t.features.items.customTailoring.title,
-    description: t.features.items.customTailoring.description,
-  },
-  {
-    icon: Sparkles,
-    title: t.features.items.repairs.title,
-    description: t.features.items.repairs.description,
-  },
-  {
-    icon: Ribbon,
-    title: t.features.items.luxuryFabrics.title,
-    description: t.features.items.luxuryFabrics.description,
-  },
-  {
-    icon: UserCheck,
-    title: t.features.items.personalFitting.title,
-    description: t.features.items.personalFitting.description,
-  },
-]
+import { useLanguage } from '@/components/language-provider'
 
 export function FeaturesSection() {
+  const { t } = useLanguage()
+
+  const features = [
+    {
+      icon: Scissors,
+      title: t.features.items.handStitching.title,
+      description: t.features.items.handStitching.description,
+    },
+    {
+      icon: Ruler,
+      title: t.features.items.customTailoring.title,
+      description: t.features.items.customTailoring.description,
+    },
+    {
+      icon: Sparkles,
+      title: t.features.items.repairs.title,
+      description: t.features.items.repairs.description,
+    },
+    {
+      icon: Ribbon,
+      title: t.features.items.luxuryFabrics.title,
+      description: t.features.items.luxuryFabrics.description,
+    },
+    {
+      icon: UserCheck,
+      title: t.features.items.personalFitting.title,
+      description: t.features.items.personalFitting.description,
+    },
+  ]
   return (
     <section className="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
       {/* Subtle pattern overlay */}
@@ -45,9 +44,9 @@ export function FeaturesSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16 will-change-transform transform-gpu"
         >
           <span className="text-sm uppercase tracking-widest text-accent">
             {t.features.title}
@@ -64,9 +63,9 @@ export function FeaturesSection() {
               key={feature.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="group will-change-transform transform-gpu"
             >
               <div className="h-full p-8 bg-card/80 backdrop-blur-sm rounded-lg border border-border/50 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-500 hover:-translate-y-1">
                 {/* Icon */}

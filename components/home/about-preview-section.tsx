@@ -4,22 +4,21 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
+import { useLanguage } from '@/components/language-provider'
 
 export function AboutPreviewSection() {
+  const { t } = useLanguage()
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image Side */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative order-2 lg:order-1"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="relative order-2 lg:order-1 will-change-transform transform-gpu"
           >
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
               <Image
@@ -37,26 +36,26 @@ export function AboutPreviewSection() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="absolute -bottom-6 -right-6 w-48 h-48 bg-secondary rounded-lg -z-10"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-32 h-32 md:w-48 md:h-48 bg-secondary rounded-lg -z-10 will-change-transform transform-gpu"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute -top-6 -left-6 w-32 h-32 border-2 border-accent/30 rounded-lg -z-10"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-24 h-24 md:w-32 md:h-32 border-2 border-accent/30 rounded-lg -z-10 will-change-transform transform-gpu"
             />
           </motion.div>
 
           {/* Content Side */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="order-1 lg:order-2"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="order-1 lg:order-2 will-change-transform transform-gpu"
           >
             <span className="text-sm uppercase tracking-widest text-accent">
               {t.aboutPreview.title}
@@ -71,9 +70,9 @@ export function AboutPreviewSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-10"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="mt-10 will-change-transform transform-gpu"
             >
               <Link
                 href="/o-mnie"

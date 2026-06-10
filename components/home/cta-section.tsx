@@ -2,11 +2,10 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
+import { useLanguage } from '@/components/language-provider'
 
 export function CTASection() {
+  const { t } = useLanguage()
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background gradient */}
@@ -17,9 +16,9 @@ export function CTASection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-3xl mx-auto text-center will-change-transform transform-gpu"
         >
           {/* Decorative line */}
           <div className="w-24 h-px bg-accent mx-auto mb-10" />
@@ -34,9 +33,9 @@ export function CTASection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-10"
+            className="mt-10 will-change-transform transform-gpu"
           >
             <Link
               href="/kontakt"

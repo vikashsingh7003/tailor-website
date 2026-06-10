@@ -3,74 +3,58 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Scissors, Ruler, Sparkles, Shirt, Wrench, RefreshCw, MessageCircle, Palette, CheckCircle, ArrowRight } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
-
-const services = [
-  {
-    icon: Scissors,
-    image: '/images/hero-dress.jpeg',
-    ...t.services.items.tailoring,
-    features: ['Indywidualny projekt', 'Precyzyjne wymiary', 'Wybór tkanin', 'Wielokrotne przymiarki'],
-  },
-  {
-    icon: Ruler,
-    image: '/images/craftsmanship.png',
-    ...t.services.items.adjustments,
-    features: ['Skracanie/przedłużanie', 'Zwężanie/poszerzanie', 'Wymiana zamków', 'Dopasowanie sylwetki'],
-  },
-  {
-    icon: Sparkles,
-    image: '/images/gallery-2.png',
-    ...t.services.items.dresses,
-    features: ['Suknie ślubne', 'Suknie wieczorowe', 'Suknie koktajlowe', 'Kreacje okolicznościowe'],
-  },
-  {
-    icon: Shirt,
-    image: '/images/gallery-1.png',
-    ...t.services.items.suits,
-    features: ['Garnitury klasyczne', 'Garnitury ślubne', 'Marynarki', 'Spodnie na miarę'],
-  },
-  {
-    icon: Wrench,
-    image: '/images/craftsmanship.png',
-    ...t.services.items.repairs,
-    features: ['Naprawa rozdarć', 'Łatanie dziur', 'Wymiana podszewek', 'Naprawa szwów'],
-  },
-  {
-    icon: RefreshCw,
-    image: '/images/studio.png',
-    ...t.services.items.redesign,
-    features: ['Modernizacja fasonów', 'Zmiana stylu', 'Przeróbka sukien', 'Upcycling odzieży'],
-  },
-]
-
-const processSteps = [
-  {
-    icon: MessageCircle,
-    number: '01',
-    ...t.offers.processSteps.consultation,
-  },
-  {
-    icon: Palette,
-    number: '02',
-    ...t.offers.processSteps.design,
-  },
-  {
-    icon: Ruler,
-    number: '03',
-    ...t.offers.processSteps.fitting,
-  },
-  {
-    icon: CheckCircle,
-    number: '04',
-    ...t.offers.processSteps.delivery,
-  },
-]
+import { Scissors, Ruler, Wrench, RefreshCw, MessageCircle, Palette, CheckCircle, ArrowRight } from 'lucide-react'
+import { useLanguage } from '@/components/language-provider'
 
 export function OffersPageContent() {
+  const { t } = useLanguage()
+
+  const services = [
+    {
+      icon: Scissors,
+      image: '/images/service-tailoring.png',
+      ...t.services.items.tailoring,
+    },
+    {
+      icon: Ruler,
+      image: '/images/service-adjustments.png',
+      ...t.services.items.adjustments,
+    },
+    {
+      icon: Wrench,
+      image: '/images/service-repairs.png',
+      ...t.services.items.repairs,
+    },
+    {
+      icon: RefreshCw,
+      image: '/images/service-redesign.png',
+      ...t.services.items.redesign,
+    },
+  ]
+
+  const processSteps = [
+    {
+      icon: MessageCircle,
+      number: '01',
+      ...t.offers.processSteps.consultation,
+    },
+    {
+      icon: Palette,
+      number: '02',
+      ...t.offers.processSteps.design,
+    },
+    {
+      icon: Ruler,
+      number: '03',
+      ...t.offers.processSteps.fitting,
+    },
+    {
+      icon: CheckCircle,
+      number: '04',
+      ...t.offers.processSteps.delivery,
+    },
+  ]
+
   return (
     <>
       {/* Hero Section */}
@@ -228,13 +212,13 @@ export function OffersPageContent() {
             className="max-w-3xl mx-auto text-center"
           >
             <span className="text-sm uppercase tracking-widest text-accent">
-              Cennik
+              {t.offers.pricingTitle}
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-serif font-medium text-foreground">
-              Indywidualna wycena
+              {t.offers.pricingSubtitle}
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Każdy projekt jest wyjątkowy, dlatego ceny ustalamy indywidualnie podczas bezpłatnej konsultacji. Skontaktuj się z nami, aby omówić szczegóły i otrzymać wycenę dopasowaną do Twoich potrzeb.
+              {t.offers.pricingDescription}
             </p>
 
             <motion.div
@@ -248,7 +232,7 @@ export function OffersPageContent() {
                 href="/kontakt"
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-charcoal text-cream text-sm uppercase tracking-wider rounded-sm hover:bg-soft-brown transition-all duration-300"
               >
-                Umów bezpłatną konsultację
+                {t.offers.pricingCta}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </motion.div>

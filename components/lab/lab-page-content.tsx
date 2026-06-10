@@ -3,70 +3,60 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Scissors, Ruler, Palette, Sparkles, Shield, Award } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
-
-const equipment = [
-  {
-    icon: Scissors,
-    title: 'Maszyny do szycia',
-    description: 'Profesjonalne maszyny przemysłowe i overlocki najwyższej klasy.',
-  },
-  {
-    icon: Ruler,
-    title: 'Narzędzia pomiarowe',
-    description: 'Precyzyjne narzędzia do dokładnego pomiaru i dopasowania.',
-  },
-  {
-    icon: Palette,
-    title: 'Wzorniki i szablony',
-    description: 'Bogata kolekcja wzorników i szablonów krawieckich.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Akcesoria wykończeniowe',
-    description: 'Kompletny zestaw akcesoriów do wykończeń i detali.',
-  },
-]
-
-const materials = [
-  {
-    title: 'Wełna',
-    description: 'Najwyższej jakości wełna włoska i angielska.',
-    image: '/images/gallery-3.png',
-  },
-  {
-    title: 'Jedwab',
-    description: 'Naturalny jedwab na eleganckie kreacje.',
-    image: '/images/gallery-4.png',
-  },
-  {
-    title: 'Bawełna',
-    description: 'Premium bawełna egipska i Sea Island.',
-    image: '/images/craftsmanship.png',
-  },
-  {
-    title: 'Len',
-    description: 'Naturalny len na letnie projekty.',
-    image: '/images/studio.png',
-  },
-]
-
-const certifications = [
-  {
-    icon: Shield,
-    title: 'Gwarancja Jakości',
-    description: 'Każda realizacja objęta jest gwarancją wykonania.',
-  },
-  {
-    icon: Award,
-    title: 'Certyfikowane Tkaniny',
-    description: 'Pracujemy wyłącznie z certyfikowanymi dostawcami.',
-  },
-]
+import { useLanguage } from '@/components/language-provider'
 
 export function LabPageContent() {
+  const { t } = useLanguage()
+
+  const equipment = [
+    {
+      icon: Scissors,
+      ...t.lab.equipmentItems.sewing,
+    },
+    {
+      icon: Ruler,
+      ...t.lab.equipmentItems.tools,
+    },
+    {
+      icon: Palette,
+      ...t.lab.equipmentItems.templates,
+    },
+    {
+      icon: Sparkles,
+      ...t.lab.equipmentItems.accessories,
+    },
+  ]
+
+  const materials = [
+    {
+      ...t.lab.materialItems.wool,
+      image: '/images/fabric-wool.png',
+    },
+    {
+      ...t.lab.materialItems.silk,
+      image: '/images/fabric-silk.png',
+    },
+    {
+      ...t.lab.materialItems.cotton,
+      image: '/images/fabric-cotton.png',
+    },
+    {
+      ...t.lab.materialItems.linen,
+      image: '/images/fabric-linen.png',
+    },
+  ]
+
+  const certifications = [
+    {
+      icon: Shield,
+      ...t.lab.certifications.quality,
+    },
+    {
+      icon: Award,
+      ...t.lab.certifications.fabrics,
+    },
+  ]
+
   return (
     <>
       {/* Hero Section */}
@@ -198,7 +188,7 @@ export function LabPageContent() {
               {t.lab.equipmentTitle}
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-serif font-medium text-foreground">
-              Profesjonalne wyposażenie
+              {t.lab.equipmentSubtitle}
             </h2>
           </motion.div>
 
@@ -241,7 +231,7 @@ export function LabPageContent() {
               {t.lab.materialsTitle}
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-serif font-medium text-foreground">
-              Najwyższej jakości tkaniny
+              {t.lab.materialsSubtitle}
             </h2>
           </motion.div>
 

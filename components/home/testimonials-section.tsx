@@ -3,9 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
+import { useLanguage } from '@/components/language-provider'
 
 const testimonials = [
   {
@@ -39,6 +37,7 @@ const testimonials = [
 ]
 
 export function TestimonialsSection() {
+  const { t } = useLanguage()
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextTestimonial = () => {
@@ -58,9 +57,9 @@ export function TestimonialsSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16 will-change-transform transform-gpu"
         >
           <span className="text-sm uppercase tracking-widest text-accent">
             {t.testimonials.title}
@@ -80,7 +79,7 @@ export function TestimonialsSection() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.5 }}
-                className="text-center px-8 lg:px-16"
+                className="text-center px-8 lg:px-16 will-change-transform transform-gpu"
               >
                 {/* Quote Icon */}
                 <div className="w-16 h-16 mx-auto mb-8 rounded-full bg-accent/10 flex items-center justify-center">

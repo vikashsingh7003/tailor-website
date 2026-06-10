@@ -3,19 +3,19 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
-
-const quickLinks = [
-  { href: '/', label: t.nav.home },
-  { href: '/o-mnie', label: t.nav.about },
-  { href: '/oferta', label: t.nav.offers },
-  { href: '/pracownia', label: t.nav.lab },
-  { href: '/kontakt', label: t.nav.contact },
-]
+import { useLanguage } from '@/components/language-provider'
 
 export function Footer() {
+  const { t } = useLanguage()
+
+  const quickLinks = [
+    { href: '/', label: t.nav.home },
+    { href: '/o-mnie', label: t.nav.about },
+    { href: '/oferta', label: t.nav.offers },
+    { href: '/pracownia', label: t.nav.lab },
+    { href: '/kontakt', label: t.nav.contact },
+  ]
+
   return (
     <footer className="bg-charcoal text-primary-foreground">
       {/* Main Footer */}

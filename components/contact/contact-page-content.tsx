@@ -3,36 +3,36 @@
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react'
 import { ContactForm } from '@/components/contact-form'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
-
-const contactInfo = [
-  {
-    icon: MapPin,
-    title: 'Adres',
-    content: [t.footer.address, t.footer.city],
-  },
-  {
-    icon: Phone,
-    title: 'Telefon',
-    content: [t.footer.phone],
-    href: `tel:${t.footer.phone}`,
-  },
-  {
-    icon: Mail,
-    title: 'Email',
-    content: [t.footer.email],
-    href: `mailto:${t.footer.email}`,
-  },
-  {
-    icon: Clock,
-    title: 'Godziny otwarcia',
-    content: [t.footer.hours.weekdays, t.footer.hours.saturday, t.footer.hours.sunday],
-  },
-]
+import { useLanguage } from '@/components/language-provider'
 
 export function ContactPageContent() {
+  const { t } = useLanguage()
+
+  const contactInfo = [
+    {
+      icon: MapPin,
+      title: 'Adres',
+      content: [t.footer.address, t.footer.city],
+    },
+    {
+      icon: Phone,
+      title: 'Telefon',
+      content: [t.footer.phone],
+      href: `tel:${t.footer.phone}`,
+    },
+    {
+      icon: Mail,
+      title: 'Email',
+      content: [t.footer.email],
+      href: `mailto:${t.footer.email}`,
+    },
+    {
+      icon: Clock,
+      title: 'Godziny otwarcia',
+      content: [t.footer.hours.weekdays, t.footer.hours.saturday, t.footer.hours.sunday],
+    },
+  ]
+
   return (
     <>
       {/* Hero Section */}

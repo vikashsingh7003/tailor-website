@@ -3,31 +3,24 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { translations } from '@/lib/translations'
+import { useLanguage } from '@/components/language-provider'
 
-const t = translations.pl
+import { HeroCanvas } from './hero-canvas'
 
 export function HeroSection() {
+  const { t } = useLanguage()
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background with overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/15 to-transparent z-10" />
+      {/* Glassmorphism without white */}
+      <div className="absolute inset-0 w-full lg:w-2/3 bg-black/20 z-10" style={{ maskImage: 'linear-gradient(to right, black 60%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, black 60%, transparent 100%)' }} />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10" />
       
       {/* Decorative fabric texture */}
-      <div className="absolute inset-0 fabric-texture z-10 opacity-50" />
+      <div className="absolute inset-0 fabric-texture z-10 opacity-30 mix-blend-overlay" />
       
-      {/* Hero Image */}
-      <div className="absolute right-0 top-0 w-full lg:w-3/5 h-full">
-        <Image
-          src="/images/hero-dress.jpeg"
-          alt="Elegancka suknia na manekinie"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="(max-width: 1024px) 100vw, 60vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
-      </div>
+      {/* Hero Canvas Sequence */}
+      <HeroCanvas />
 
       {/* Content */}
       <div className="container mx-auto px-6 lg:px-12 relative z-20">
@@ -37,8 +30,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="will-change-transform transform-gpu"
           >
-            <span className="text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-great-vibes)] text-charcoal">
+            <span className="text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-great-vibes)] text-accent drop-shadow-md">
               {t.hero.tagline}
             </span>
           </motion.div>
@@ -48,7 +42,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="mt-6 text-2xl md:text-3xl lg:text-4xl font-serif font-medium text-foreground leading-tight text-balance"
+            className="mt-6 text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-cream leading-tight text-balance drop-shadow-md will-change-transform transform-gpu"
           >
             {t.hero.headline}
           </motion.h1>
@@ -58,7 +52,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
-            className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl"
+            className="mt-6 text-base md:text-lg text-cream/80 leading-relaxed max-w-xl drop-shadow-sm will-change-transform transform-gpu"
           >
             {t.hero.description}
           </motion.p>
@@ -72,13 +66,13 @@ export function HeroSection() {
           >
             <Link
               href="/oferta"
-              className="inline-flex items-center justify-center px-8 py-4 bg-charcoal text-cream text-sm uppercase tracking-wider rounded-sm hover:bg-soft-brown transition-all duration-300 hover:shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 border border-cream text-cream text-sm uppercase tracking-wider rounded-sm hover:bg-cream hover:text-charcoal transition-all duration-300"
             >
               {t.hero.cta.primary}
             </Link>
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center px-8 py-4 border border-charcoal text-charcoal text-sm uppercase tracking-wider rounded-sm hover:bg-charcoal hover:text-cream transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-4 border border-cream text-cream text-sm uppercase tracking-wider rounded-sm hover:bg-cream hover:text-charcoal transition-all duration-300"
             >
               {t.hero.cta.secondary}
             </Link>

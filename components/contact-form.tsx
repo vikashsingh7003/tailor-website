@@ -3,13 +3,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Check, AlertCircle } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
+import { useLanguage } from '@/components/language-provider'
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 export function ContactForm() {
+  const { t } = useLanguage()
   const [status, setStatus] = useState<FormStatus>('idle')
   const [formData, setFormData] = useState({
     name: '',

@@ -3,53 +3,30 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Heart, Award, Sparkles, Clock } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
-
-const values = [
-  {
-    icon: Award,
-    ...t.about.values.quality,
-  },
-  {
-    icon: Clock,
-    ...t.about.values.tradition,
-  },
-  {
-    icon: Sparkles,
-    ...t.about.values.innovation,
-  },
-  {
-    icon: Heart,
-    ...t.about.values.passion,
-  },
-]
-
-const timeline = [
-  {
-    year: '2004',
-    title: 'Początki',
-    description: 'Rozpoczęcie przygody z krawiectwem i nauka tradycyjnych technik.',
-  },
-  {
-    year: '2010',
-    title: 'Własna Pracownia',
-    description: 'Otwarcie pierwszej własnej pracowni krawieckiej.',
-  },
-  {
-    year: '2015',
-    title: 'Rozwój',
-    description: 'Rozszerzenie działalności o szycie ślubne i wieczorowe.',
-  },
-  {
-    year: '2020',
-    title: 'WIWI',
-    description: 'Powstanie marki WIWI i nowa, nowoczesna pracownia.',
-  },
-]
+import { useLanguage } from '@/components/language-provider'
 
 export function AboutPageContent() {
+  const { t } = useLanguage()
+
+  const values = [
+    {
+      icon: Award,
+      ...t.about.values.quality,
+    },
+    {
+      icon: Clock,
+      ...t.about.values.tradition,
+    },
+    {
+      icon: Sparkles,
+      ...t.about.values.innovation,
+    },
+    {
+      icon: Heart,
+      ...t.about.values.passion,
+    },
+  ]
+
   return (
     <>
       {/* Hero Section */}
@@ -117,15 +94,9 @@ export function AboutPageContent() {
                 <p>
                   {t.about.storyContent}
                 </p>
-                <p>
-                  Przez kilka lat pracowałam jako konstruktor odzieży dla firm, takich jak Vero Moda czy Telimena, jednak najwięcej satysfakcji zawsze sprawiało mi szycie i bezpośredni kontakt z klientem.
-                </p>
-                <p>
-                  Wieloletnie doświadczenie w naprawianiu i przerabianiu odzieży, sprawia, że nawet skomplikowane operacje krawieckie wykonuję szybko a jednocześnie dokładnie.
-                </p>
-                <p>
-                  Bardzo ważne jest dla mnie zadowolenie klienta, dlatego zawsze fachowo i rzetelnie podchodzę do wykonania usługi.
-                </p>
+                {t.about.storyParagraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -188,15 +159,15 @@ export function AboutPageContent() {
             className="text-center max-w-2xl mx-auto mb-16"
           >
             <span className="text-sm uppercase tracking-widest text-accent">
-              Historia
+              {t.about.studio.timelineTitle}
             </span>
             <h2 className="mt-4 text-3xl md:text-4xl font-serif font-medium text-foreground">
-              Moja droga
+              {t.about.studio.timelineSubtitle}
             </h2>
           </motion.div>
 
           <div className="max-w-3xl mx-auto">
-            {timeline.map((item, index) => (
+            {t.about.timeline.map((item, index) => (
               <motion.div
                 key={item.year}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
@@ -236,13 +207,13 @@ export function AboutPageContent() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-sm uppercase tracking-widest text-accent">
-                Pracownia
+                {t.about.studio.title}
               </span>
               <h2 className="mt-4 text-3xl md:text-4xl font-serif font-medium text-cream">
-                Miejsce, gdzie powstaje magia
+                {t.about.studio.subtitle}
               </h2>
               <p className="mt-6 text-cream/70 leading-relaxed">
-                Nasza pracownia – to tutaj twoja odzież może „dostać drugie życie”. W zależności od rodzaju materiału czy rodzaju robót krawieckich wykorzystujemy różne maszyny, dzięki temu szycie odbywa się bez przeszkód. Nasza pracownia wyposażona jest w bogaty park maszyn:
+                {t.about.studio.description}
               </p>
               <ul className="list-disc space-y-2 pl-5 text-base text-cream/70 mt-4">
                 {t.machines.map((item) => (

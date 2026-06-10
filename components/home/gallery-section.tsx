@@ -4,9 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { X } from 'lucide-react'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
+import { useLanguage } from '@/components/language-provider'
 
 const galleryImages = [
   { src: '/images/gallery-7.jpeg', alt: 'Elegancka suknia ślubna', aspect: 'tall' },
@@ -19,6 +17,7 @@ const galleryImages = [
 ]
 
 export function GallerySection() {
+  const { t } = useLanguage()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
@@ -28,9 +27,9 @@ export function GallerySection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16 will-change-transform transform-gpu"
         >
           <span className="text-sm uppercase tracking-widest text-accent">
             {t.gallery.title}
@@ -47,9 +46,9 @@ export function GallerySection() {
               key={image.src}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="break-inside-avoid"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              className="break-inside-avoid will-change-transform transform-gpu"
             >
               <button
                 onClick={() => setSelectedImage(image.src)}
@@ -68,13 +67,13 @@ export function GallerySection() {
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform transform-gpu"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/30 transition-colors duration-500 flex items-center justify-center">
                     <span className="text-cream text-sm uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      Zobacz
+                      {t.gallery.viewImage || 'Zobacz'}
                     </span>
                   </div>
                 </div>

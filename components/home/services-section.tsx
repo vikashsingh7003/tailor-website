@@ -3,44 +3,33 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { translations } from '@/lib/translations'
-
-const t = translations.pl
-
-const services = [
-  {
-    key: 'tailoring',
-    image: '/images/gallery-6.jpeg',
-    ...t.services.items.tailoring,
-  },
-  {
-    key: 'adjustments',
-    image: '/images/craftsmanship.png',
-    ...t.services.items.adjustments,
-  },
-  {
-    key: 'dresses',
-    image: '/images/gallery-7.jpeg',
-    ...t.services.items.dresses,
-  },
-  {
-    key: 'suits',
-    image: '/images/studio.png',
-    ...t.services.items.suits,
-  },
-  {
-    key: 'repairs',
-    image: '/images/craftsmanship.png',
-    ...t.services.items.repairs,
-  },
-  {
-    key: 'redesign',
-    image: '/images/studio.png',
-    ...t.services.items.redesign,
-  },
-]
+import { useLanguage } from '@/components/language-provider'
 
 export function ServicesSection() {
+  const { t } = useLanguage()
+
+  const services = [
+    {
+      key: 'tailoring',
+      image: '/images/service-tailoring.png',
+      ...t.services.items.tailoring,
+    },
+    {
+      key: 'adjustments',
+      image: '/images/service-adjustments.png',
+      ...t.services.items.adjustments,
+    },
+    {
+      key: 'repairs',
+      image: '/images/service-repairs.png',
+      ...t.services.items.repairs,
+    },
+    {
+      key: 'redesign',
+      image: '/images/service-redesign.png',
+      ...t.services.items.redesign,
+    },
+  ]
   return (
     <section className="py-24 lg:py-32 bg-charcoal relative overflow-hidden">
       {/* Decorative pattern */}
@@ -51,9 +40,9 @@ export function ServicesSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-16 will-change-transform transform-gpu"
         >
           <span className="text-sm uppercase tracking-widest text-accent">
             {t.services.title}
@@ -64,14 +53,15 @@ export function ServicesSection() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.key}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="will-change-transform transform-gpu"
             >
               <Link href="/oferta" className="group block">
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-5">
@@ -79,7 +69,7 @@ export function ServicesSection() {
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 will-change-transform transform-gpu"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Overlay */}
