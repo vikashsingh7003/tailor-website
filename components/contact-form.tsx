@@ -55,7 +55,7 @@ export function ContactForm() {
 
     try {
       // Wpisz tutaj email klienta zamiast "twoj@email.com"
-      const response = await fetch("https://formsubmit.co/ajax/sayongbonk@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/Lasota.ww@wp.pl", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
