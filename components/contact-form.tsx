@@ -63,6 +63,9 @@ export function ContactForm() {
         },
         body: JSON.stringify({
           _subject: "Nowe zapytanie kontaktowe - WiWi",
+          _template: "table",
+          _captcha: "false",
+          timestamp: new Date().toISOString(),
           ...formData,
           phone: `${formData.countryCode} ${formData.phone}`
         }),

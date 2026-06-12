@@ -38,7 +38,10 @@ export function CoursesContact() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          _subject: "Nowe zapisy na kurs - WiWi",
+          _subject: "Zapis na kurs krawiecki - WiWi",
+          _template: "table",
+          _captcha: "false",
+          timestamp: new Date().toISOString(),
           ...formData,
           phone: `${formData.countryCode} ${formData.phone}`
         }),
