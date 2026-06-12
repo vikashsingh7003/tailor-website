@@ -20,8 +20,15 @@ export function GallerySection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   return (
-    <section className="py-20 lg:py-32 relative overflow-hidden bg-[#ffffff]">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-20 lg:py-32 relative overflow-hidden bg-[#f5f5f5]">
+      {/* Decorative Background Orbs */}
+      <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-[#ffc000]/15 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[500px] h-[500px] bg-[#e6b800]/10 rounded-full blur-[120px] pointer-events-none" />
+      
+      {/* Glassmorphic Overlay */}
+      <div className="absolute inset-0 backdrop-blur-xl border-y border-white/30" />
+
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Heading Block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

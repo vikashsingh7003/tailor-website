@@ -16,17 +16,29 @@ export function HeroCanvas() {
 
   // Preload images
   useEffect(() => {
-    for (let i = 1; i <= FRAME_COUNT; i++) {
-      const img = new Image()
-      const frameNum = i.toString().padStart(3, '0')
-      img.src = `/images/hero-sequence/ezgif-frame-${frameNum}.jpg`
-      imagesRef.current.push(img)
-    }
-
-    // Draw first frame once it loads
-    const firstImage = imagesRef.current[0]
-    firstImage.onload = () => {
+    // Load first frame immediately for initial paint
+    const firstImg = new Image()
+    firstImg.src = `/images/hero-sequence/ezgif-frame-001.jpg`
+    imagesRef.current[0] = firstImg
+    
+    firstImg.onload = () => {
       renderFrame(0)
+      
+      // Lazily load the rest of the sequence so we don't block network and CPU on load
+      const loadRest = () => {
+        for (let i = 2; i <= FRAME_COUNT; i++) {
+          const img = new Image()
+          const frameNum = i.toString().padStart(3, '0')
+          img.src = `/images/hero-sequence/ezgif-frame-${frameNum}.jpg`
+          imagesRef.current[i - 1] = img
+        }
+      }
+
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        requestIdleCallback(loadRest)
+      } else {
+        setTimeout(loadRest, 500)
+      }
     }
   }, [])
 

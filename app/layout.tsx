@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Barlow_Condensed, Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/components/language-provider'
+import { Agentation } from 'agentation'
 import './globals.css'
 
 const lamboType = Barlow_Condensed({
@@ -92,6 +93,7 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
         </LanguageProvider>
+        {process.env.NODE_ENV === 'development' && <Agentation />}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

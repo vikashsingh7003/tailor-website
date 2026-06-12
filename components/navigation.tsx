@@ -2,14 +2,17 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Globe } from 'lucide-react'
+import { Menu, X, Globe, ArrowLeft } from 'lucide-react'
 import { useLanguage } from '@/components/language-provider'
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
+  const pathname = usePathname()
+  const router = useRouter()
 
   const navLinks = [
     { href: '/', label: t.nav.home },
@@ -37,20 +40,33 @@ export function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#202020]"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#202020]/70 backdrop-blur-md border-b border-white/10"
     >
       <nav className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="group">
-            <motion.span
-              className="flex items-center justify-center"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
-              <img src="/images/logo-wiwi.png" alt="WIWI Logo" className='h-32 w-32 object-contain -ml-4' />
-            </motion.span>
-          </Link>
+        <div className="flex items-center justify-between h-24">
+          {/* Back Button & Logo */}
+          <div className="flex items-center gap-4">
+            {pathname !== '/' && (
+              <button 
+                onClick={() => router.back()}
+                className="flex items-center gap-2 text-white hover:text-[#ffc000] transition-colors duration-300 group"
+                aria-label="Wróć"
+              >
+                <ArrowLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
+                <span className="hidden sm:inline font-lambotype uppercase tracking-[0.023em] text-[16px]">Powrót</span>
+              </button>
+            )}
+
+            <Link href="/" className="group">
+              <motion.span
+                className="flex items-center justify-center"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <img src="/images/logo-wiwi.png" alt="WIWI Logo" className='h-32 w-32 lg:h-56 lg:w-56 object-contain -ml-2 lg:-ml-6' />
+              </motion.span>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10 text-white">
@@ -114,7 +130,7 @@ export function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-[#202020] border-t border-[#494949] shadow-2xl"
+            className="lg:hidden absolute top-full left-0 right-0 bg-[#202020]/80 backdrop-blur-lg border-t border-[#494949] shadow-2xl"
           >
             <div className="container mx-auto px-6 py-8">
               <div className="flex flex-col gap-6">

@@ -5,18 +5,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/components/language-provider'
 
-import { HeroCanvas } from './hero-canvas'
-
 export function HeroSection() {
   const { t } = useLanguage()
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#202020]">
       {/* Dark overlay for contrast */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
+      <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none" />
       
-      {/* Hero Canvas Sequence */}
-      <HeroCanvas />
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/videos/hero-background.mp4" type="video/mp4" />
+      </video>
 
       {/* Content */}
       <div className="container mx-auto px-6 lg:px-12 relative z-20">

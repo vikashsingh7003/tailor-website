@@ -8,8 +8,15 @@ import { useLanguage } from '@/components/language-provider'
 export function AboutPreviewSection() {
   const { t } = useLanguage()
   return (
-    <section className="py-20 lg:py-32 relative overflow-hidden bg-[#ffffff]">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section className="py-20 lg:py-32 relative overflow-hidden bg-[#f5f5f5]">
+      {/* Decorative Background Orbs */}
+      <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ffc000]/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-[#e6b800]/15 rounded-full blur-[120px] pointer-events-none" />
+      
+      {/* Glassmorphic Overlay */}
+      <div className="absolute inset-0 backdrop-blur-xl border-y border-white/30 shadow-lg" />
+
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image Side */}
           <motion.div

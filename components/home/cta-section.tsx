@@ -7,8 +7,23 @@ import { useLanguage } from '@/components/language-provider'
 export function CTASection() {
   const { t } = useLanguage()
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden bg-[#181818]">
-      <div className="container mx-auto px-6 lg:px-12 relative">
+    <section className="py-24 relative overflow-hidden bg-[#000000]">
+      {/* Cinematic Background Video */}
+      {/* Save your generated video as public/videos/cta-background.mp4 */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-60"
+      >
+        <source src="/videos/cta-background.mp4" type="video/mp4" />
+      </video>
+
+      {/* Subtle overlay (Glassmorphism removed so background is visible) */}
+      <div className="absolute inset-0 border-y border-white/10 pointer-events-none bg-black/20" />
+
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +37,7 @@ export function CTASection() {
           <h2 className="text-[40px] md:text-[54px] font-lambotype uppercase text-[#ffffff] leading-tight text-balance tracking-[0.023em]">
             {t.cta.title}
           </h2>
-          <p className="mt-6 text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-6 text-[16px] font-lambotype uppercase tracking-[0.023em] text-white/80 leading-relaxed max-w-2xl mx-auto">
             {t.cta.description}
           </p>
 

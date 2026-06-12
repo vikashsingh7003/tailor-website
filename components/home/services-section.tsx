@@ -32,8 +32,15 @@ export function ServicesSection() {
   ]
   
   return (
-    <section className="py-20 lg:py-32 bg-[#f5f5f5] relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 relative">
+    <section className="py-20 lg:py-32 relative overflow-hidden bg-[#f5f5f5]">
+      {/* Decorative Background Orbs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ffc000]/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#e6b800]/15 rounded-full blur-[120px] pointer-events-none" />
+      
+      {/* Glassmorphic Overlay */}
+      <div className="absolute inset-0 backdrop-blur-xl border-y border-white/30" />
+
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Heading Block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
