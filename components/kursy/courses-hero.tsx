@@ -13,13 +13,15 @@ export function CoursesHero() {
     <section className="relative min-h-[90vh] flex items-center justify-start overflow-hidden py-20 lg:py-32 bg-[#202020]">
       {/* Full-bleed background image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/course_hero.png"
-          alt="Sewing Course Background"
-          fill
-          className="object-cover"
-          priority
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="object-cover w-full h-full"
+        >
+          <source src="/videos/kursy-background.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/40" /> {/* Dark overlay for contrast */}
       </div>
 
