@@ -102,7 +102,7 @@ export function LabPageContent() {
               className="relative aspect-[4/3] overflow-hidden bg-[#f5f5f5]"
             >
               <Image
-                src="/images/studio.png"
+                src="/images/lab-studio-main.png"
                 alt="Pracownia krawiecka"
                 fill
                 className="object-cover"
@@ -135,7 +135,7 @@ export function LabPageContent() {
                 className="relative aspect-square overflow-hidden bg-[#f5f5f5]"
               >
                 <Image
-                  src="/images/atelier_detail_2.png"
+                  src="/images/lab-fabrics.png"
                   alt="Fabrics"
                   fill
                   className="object-cover"
@@ -165,7 +165,7 @@ export function LabPageContent() {
                 className="relative aspect-square overflow-hidden bg-[#f5f5f5]"
               >
                 <Image
-                  src="/images/gallery-4.png"
+                  src="/images/lab-embroidery.png"
                   alt="Embroidery"
                   fill
                   className="object-cover"

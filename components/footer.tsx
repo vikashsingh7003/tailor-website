@@ -30,11 +30,6 @@ export function Footer() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-1"
             >
-              <Link href="/" className="inline-block">
-                <span className="flex items-center justify-start">
-                  <img src="/images/logo-wiwi.png" alt="WIWI Logo" className='h-72 w-72 object-contain -ml-4' />
-                </span>
-              </Link>
               <p className="mt-4 text-[#969696] text-[16px] uppercase font-lambotype tracking-[0.023em] leading-relaxed">
                 {t.footer.tagline}
               </p>
