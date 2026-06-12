@@ -58,14 +58,23 @@ export function ServicesSection() {
         </motion.div>
 
         {/* Services Grid (Image Tiles) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service, index) => (
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.2 } }
+          }}
+        >
+          {services.map((service) => (
             <motion.div
               key={service.key}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+              }}
               className="will-change-transform transform-gpu"
             >
               <Link href="/oferta" className="group block">
@@ -83,13 +92,13 @@ export function ServicesSection() {
                 <h3 className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2 group-hover:text-[#ffc000] transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed">
+                <p className="text-[16px] font-sans font-light text-[#7d7d7d] leading-relaxed">
                   {service.description}
                 </p>
               </Link>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

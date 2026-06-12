@@ -86,7 +86,7 @@ export function AboutPageContent() {
               <h2 className="text-[40px] md:text-[54px] font-lambotype uppercase text-[#202020] leading-tight mb-8">
                 Krawiectwo oparte na wiedzy i pasji
               </h2>
-              <div className="space-y-6 text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed">
+              <div className="space-y-6 text-[16px] font-sans font-light text-[#7d7d7d] leading-relaxed">
                 <p>
                   {t.about.storyContent}
                 </p>
@@ -114,14 +114,23 @@ export function AboutPageContent() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
-            {values.map((value, index) => (
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+          >
+            {values.map((value) => (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+                }}
                 className="border-t border-[#e0e0e0] pt-6 lg:pt-8 pr-6 pb-8"
               >
                 <div className="mb-6">
@@ -130,12 +139,12 @@ export function AboutPageContent() {
                 <h3 className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-3">
                   {value.title}
                 </h3>
-                <p className="text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed">
+                <p className="text-[14px] font-sans font-light text-[#7d7d7d] leading-relaxed">
                   {value.description}
                 </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -154,14 +163,23 @@ export function AboutPageContent() {
             </h2>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto border-l border-[#202020] ml-0 md:ml-8 pl-8 md:pl-12 py-4">
-            {t.about.timeline.map((item, index) => (
+          <motion.div 
+            className="max-w-3xl mx-auto border-l border-[#202020] ml-0 md:ml-8 pl-8 md:pl-12 py-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.15 } }
+            }}
+          >
+            {t.about.timeline.map((item) => (
               <motion.div
                 key={item.year}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, x: -30 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+                }}
                 className="relative mb-16 last:mb-0"
               >
                 {/* Timeline dot */}
@@ -171,12 +189,12 @@ export function AboutPageContent() {
                 <h3 className="text-[24px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed">
+                <p className="text-[16px] font-sans font-light text-[#7d7d7d] leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -193,7 +211,7 @@ export function AboutPageContent() {
               <h2 className="text-[40px] md:text-[54px] font-lambotype uppercase text-[#ffffff] leading-tight mb-8">
                 {t.about.studio.subtitle}
               </h2>
-              <p className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed mb-8">
+              <p className="text-[16px] font-sans font-light text-[#7d7d7d] leading-relaxed mb-8">
                 {t.about.studio.description}
               </p>
               <ul className="space-y-4">

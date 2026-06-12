@@ -43,7 +43,7 @@ export function Navigation() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-[#202020]/70 backdrop-blur-md border-b border-white/10"
     >
       <nav className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Back Button & Logo */}
           <div className="flex items-center gap-4">
             {pathname !== '/' && (
@@ -63,7 +63,7 @@ export function Navigation() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <img src="/images/logo-wiwi.png" alt="WIWI Logo" className='h-32 w-32 lg:h-56 lg:w-56 object-contain -ml-2 lg:-ml-6' />
+                <img src="/images/logo-wiwi.png" alt="WIWI Logo" className='h-24 w-24 lg:h-44 lg:w-44 object-contain -ml-2 lg:-ml-4' />
               </motion.span>
             </Link>
           </div>

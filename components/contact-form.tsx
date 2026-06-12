@@ -104,7 +104,7 @@ export function ContactForm() {
   }
 
   const inputClasses = (fieldName: string) =>
-    `w-full px-4 py-4 bg-white border text-[#202020] placeholder:text-[#7d7d7d] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] ${errors[fieldName] ? 'border-red-600' : 'border-[#e0e0e0]'
+    `w-full px-0 py-3 bg-transparent border-b-2 text-[#202020] placeholder:text-[#7d7d7d]/50 focus:outline-none focus:ring-0 focus:border-[#ffc000] transition-colors duration-300 text-[16px] font-sans font-light ${errors[fieldName] ? 'border-red-600' : 'border-[#e0e0e0]'
     }`
 
   return (
@@ -114,7 +114,7 @@ export function ContactForm() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       onSubmit={handleSubmit}
-      className="space-y-6 bg-[#ffffff] p-8 lg:p-12 border border-[#e0e0e0]"
+      className="space-y-10 bg-[#ffffff] p-8 lg:p-16 shadow-[0_20px_60px_rgba(0,0,0,0.05)]"
     >
       {/* Name and Email Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -172,7 +172,7 @@ export function ContactForm() {
               name="countryCode"
               value={formData.countryCode}
               onChange={handleChange}
-              className="px-4 py-4 bg-white border border-[#e0e0e0] sm:border-r-0 text-[#202020] focus:outline-none focus:ring-0 focus:border-[#202020] transition-all text-[16px] font-lambotype uppercase tracking-[0.023em] appearance-none cursor-pointer shrink-0 sm:min-w-[110px] text-center"
+              className="px-0 py-3 bg-transparent border-b-2 border-[#e0e0e0] text-[#202020] focus:outline-none focus:ring-0 focus:border-[#ffc000] transition-colors duration-300 text-[16px] font-sans font-light appearance-none cursor-pointer shrink-0 sm:min-w-[110px] text-center"
             >
               <option value="+48">🇵🇱 +48</option>
               <option value="+44">🇬🇧 +44</option>

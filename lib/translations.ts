@@ -156,7 +156,7 @@ export const translations = {
       heroTitle: 'O Mnie',
       heroSubtitle: 'Historia pasji do krawiectwa',
       storyTitle: 'Moja Historia',
-      storyContent: 'Jako absolwentka kierunku włókiennictwa na Poltechnice Łódzkiej, posiadam odpowiednią wiedzę o materiałach tekstylnych jak i o konstrukcji oraz technologii odzieży.',
+      storyContent: 'Jako absolwentka kierunku włókiennictwa na Politechnice Łódzkiej, posiadam odpowiednią wiedzę o materiałach tekstylnych jak i o konstrukcji oraz technologii odzieży.',
       valuesTitle: 'Nasze Wartości',
       values: {
         quality: {
@@ -178,7 +178,7 @@ export const translations = {
       },
       storyParagraphs: [
         'Przez kilka lat pracowałam jako konstruktor odzieży dla firm, takich jak Vero Moda czy Telimena, jednak najwięcej satysfakcji zawsze sprawiało mi szycie i bezpośredni kontakt z klientem.',
-        'Wieloletnie doświadczenie w naprawianiu i przerabianiu odzieży, sprawia, że nawet skomplikowane operacje krawieckie wykonuję szybko a jednocześnie dokładnie.',
+        'Wieloletnie doświadczenie w naprawianiu i przerabianiu odzieży sprawia, że nawet skomplikowane operacje krawieckie wykonuję szybko a jednocześnie dokładnie.',
         'Bardzo ważne jest dla mnie zadowolenie klienta, dlatego zawsze fachowo i rzetelnie podchodzę do wykonania usługi.',
       ],
       timeline: [
@@ -415,7 +415,7 @@ export const translations = {
     machines: [
       'stębnówka',
       'overlock',
-      'merezka',
+      'mereżka',
       'renderka',
       'podszywarka',
       'napownica',
@@ -599,7 +599,7 @@ export const translations = {
         },
       },
       storyParagraphs: [
-        'For several years, I worked as a clothing constructor for companies like Vero Moda and Telimena, but sewing and direct contact with clients have always brought me the most satisfaction.',
+        'For several years, I worked as a pattern maker for companies like Vero Moda and Telimena, but sewing and direct contact with clients have always brought me the most satisfaction.',
         'Years of experience in repairing and altering clothes mean that I perform even complex tailoring operations quickly and accurately.',
         'Customer satisfaction is very important to me, which is why I always approach the execution of services professionally and reliably.',
       ],
@@ -744,7 +744,7 @@ export const translations = {
       courses: {
         title: 'Our Courses',
         subtitle: 'Home / Courses',
-        enrolNow: 'Enrol Now',
+        enrolNow: 'Enroll Now',
         durationLabel: 'Duration:',
         batchLabel: 'Batch Size:',
         modeLabel: 'Mode:',
@@ -782,7 +782,7 @@ export const translations = {
       ctaBanner: {
         title: 'Ready to Start Your Stitching Journey?',
         description: 'Join our in-person classes today and turn your passion into a skill.',
-        enrolNow: 'Enrol Now',
+        enrolNow: 'Enroll Now',
       },
       studentsSay: {
         title: 'What Our Students Say',
@@ -806,7 +806,7 @@ export const translations = {
       },
       ctaBannerSmall: {
         text: 'All classes are conducted in person. Limited seats available in each batch. Enrol now to secure your seat!',
-        enrolNow: 'Enrol Now',
+        enrolNow: 'Enroll Now',
       },
       classDetails: {
         title: 'Class Details',
@@ -815,7 +815,7 @@ export const translations = {
         location: 'Location: Jana Pawła II 65 93-570, Łódź',
         phone: 'Phone: +48 660 989 475',
         payment: 'Payment: In Person Only',
-        enrolNow: 'Enrol Now',
+        enrolNow: 'Enroll Now',
       },
       enrollForm: {
         title: 'Enrol in a Course',

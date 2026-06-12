@@ -82,7 +82,7 @@ export function LabPageContent() {
             <h1 className="text-[64px] md:text-[80px] lg:text-[120px] font-lambotype uppercase text-white leading-[0.92] tracking-[0.023em] text-balance">
               {t.lab.heroSubtitle}
             </h1>
-            <p className="mt-6 text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] max-w-2xl leading-relaxed">
+            <p className="mt-6 text-[16px] font-sans font-light text-[#7d7d7d] max-w-2xl leading-relaxed">
               {t.lab.description}
             </p>
           </motion.div>
@@ -192,14 +192,23 @@ export function LabPageContent() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
-            {equipment.map((item, index) => (
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+          >
+            {equipment.map((item) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+                }}
                 className="border-t border-[#e0e0e0] pt-6 lg:pt-8 pr-6 pb-8"
               >
                 <div className="mb-6">
@@ -208,12 +217,12 @@ export function LabPageContent() {
                 <h3 className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed">
+                <p className="text-[14px] font-sans font-light text-[#7d7d7d] leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -232,14 +241,23 @@ export function LabPageContent() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {materials.map((material, index) => (
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+          >
+            {materials.map((material) => (
               <motion.div
                 key={material.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+                }}
                 className="group flex flex-col"
               >
                 <div className="relative aspect-[3/4] overflow-hidden mb-6 bg-[#f5f5f5]">
@@ -254,12 +272,12 @@ export function LabPageContent() {
                 <h3 className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#202020] mb-2">
                   {material.title}
                 </h3>
-                <p className="text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed flex-grow">
+                <p className="text-[14px] font-sans font-light text-[#7d7d7d] leading-relaxed flex-grow">
                   {material.description}
                 </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -283,7 +301,7 @@ export function LabPageContent() {
                   <h3 className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#ffffff] mb-3">
                     {cert.title}
                   </h3>
-                  <p className="text-[14px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed">
+                  <p className="text-[14px] font-sans font-light text-[#7d7d7d] leading-relaxed">
                     {cert.description}
                   </p>
                 </div>

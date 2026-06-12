@@ -51,7 +51,7 @@ export function AboutPreviewSection() {
             <h2 className="text-[40px] md:text-[54px] font-lambotype uppercase text-[#202020] leading-tight text-balance mb-6">
               {t.aboutPreview.subtitle}
             </h2>
-            <p className="text-[16px] font-lambotype uppercase tracking-[0.023em] text-[#7d7d7d] leading-relaxed max-w-xl">
+            <p className="text-[16px] font-sans font-light text-[#7d7d7d] leading-relaxed max-w-xl">
               {t.aboutPreview.description}
             </p>
 
